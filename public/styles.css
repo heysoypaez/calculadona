@@ -7,6 +7,38 @@ body{
 	text-align: center;
 }
 
+button{
+
+
+	margin-top: 1vh;
+	max-height: 65vh;
+
+	background-color: #e00; /*gray color*/
+	color: #fff;
+
+	font-size: 20px;
+	font-weight: 600;
+
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	padding-left: 2vw;
+	padding-right: 2vw;
+
+	border-radius: 20px;
+
+	border: 0px;
+	border-bottom: 3px solid black;
+	/*width, style, color*/
+
+}
+
+button:hover {
+
+	background-color: #f00;
+	border-bottom: 1px solid black;
+}
+
+
 #plato-donas{
 	max-width: 90vw;
 	max-height: 50vh;
@@ -36,10 +68,7 @@ body{
 
 }
 
-.header:hover {
 
-	border-bottom: 4px solid black;
-}
 
 img#logo {
 
@@ -106,4 +135,11 @@ img#logo {
 
 .footer{
 	float:right;
+}
+
+#day-content{
+	color: #000;
+	text-align: left;
+
+	margin-top: 3vh;
 }
