@@ -8,6 +8,11 @@ URL código: github.com/heysoypaez
 
 /*
 
+NOTICIAS
+=> 400 pesos se gana a cada helado
+
+
+
 Estructura funcional
 
 1. Puedo crear un objeto producto que almacene
@@ -71,7 +76,8 @@ console.log("Inicializando archivo")
 
 const texto = document.createTextNode("Hola, soy Chávez")
 const titulos = document.getElementsByTagName('h1');
-const contenidoDeJornada = document.getElementById("day-content")
+const contenidoDeJornada = document.getElementById("contenido-jornada")
+const contenidoDeSidebar = document.getElementById("barra-jornadas")
 
 
 
@@ -104,21 +110,59 @@ Y crear una coleccion ordenada de los productos de vladimiro
 
 //Creando la clase producto
 class Producto {
-	constructor(nombre,tipo,imagen, frase){
+	constructor(nombre,categoria,imagenLink, frase, precio, ganancia, stock){
 		this.nombre = nombre
-		this.tipo = tipo
-		this.imagen = imagen
 		this.frase = frase
+
+		this.categoria = categoria
+
+		this.imagen = new Image
+		this.imagen.className = "imagenProducto"
+		this.imagen.src = imagenLink
+		
+
+		this.precio = precio
+		this.ganacia = ganancia
+		this.stock = stock
+
+	}
+
+	generoDePalabra(palabra) {
+
+		//Variables
+		
+		
+
+		const ultimaLetra = palabra.length - 1
+		const peultimaLetra = palabra.length - 2
+
+		const masculino = palabra.charAt(ultimaLetra) === "o" || palabra.charAt(peultimaLetra) === "o"
+
+		return masculino
 	}
 
 //funcion que muestra las caracteristicas claves del producto
-	mostrar() {
+	mostrar(lugar) {
 
+		let texto 
+		let categoria = this.categoria
+		
+		//logica
+		if( this.generoDePalabra(this.categoria) ) {
+			texto = `Esta ${categoria} es el ${this.nombre} ` 
+		}
 
-		const texto = `Esta ${this.tipo} es el(la) ${this.nombre} `
+		else{
+			texto = `Esta ${categoria} es la ${this.nombre} `	
+		}
+	
 
 		//Reasignamos el contenido con nuevos textos
-		contenidoDeJornada.innerHTML += `<li> ${texto} </li>`
+
+		//OUTPUT , retorno
+		lugar.innerHTML += `<li> ${texto} </li>`
+		//Esta imagen queda justo debajo del texto
+		lugar.appendChild(this.imagen)
 
 	}
 
@@ -128,20 +172,25 @@ class Producto {
 
 //Array vector donde contendremos el conjunto de productos de Vladimiro
 let catalogo = [
-	new Producto("Dona de Nutella", "Dona"),
-	new Producto("Helado de Chocolate", "Helado"),
-	new Producto("Helado de Oreo","helado")
+
+	new Producto("Dona de Pie", "Dona", "../src/images/donas-pie-limon.jpg"),
+	new Producto("Helado de Chocolate", "Helado", "../src/images/donas-licor-manjar-frutos-rojos.jpg"),
+	new Producto("Helado de Oreo","helado", "../src/images/donas-piramide-apilada.jpg"),
+	new Producto("Mini Dona","Dona","../src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 1500, 400, 5),
+	new Producto("Galleta Oreo", "Galleta", "../src/images/donas-licor-manjar-frutos-rojos.jpg")
 
 ];
-
 
 //Ciclo for aplicado a una coleccion de objetos
 //para los producto del catalogo ...
 for (let i = 0; i < catalogo.length ; i++){
-	catalogo[i].mostrar()
+	catalogo[i].mostrar(contenidoDeSidebar)
 
 }
 
+
+strJornada = contenidoDeJornada.innerHTML
+strJornada.charAt(0)
 
 /*DECLARACIÓN DE OBJETOS
 ============================*/		
