@@ -1,11 +1,95 @@
-body{
-	background-color: #ff9900;
+/*
+Autor: Daniel Páez
+URL Autor: https://heysoypaez
+Tema de la aplicación: calculadora para un negocio de reposteria 
+Descripción: aplicacion que ayuda a calcular los gastos, ingresos, ganancias, stock de un negocio de reposteria
+URL código: github.com/heysoypaez
+*/
+ 
+/* Table of Contents
 
+	- Defaults
+		- Body
+		- Button
+		- Typographical Elements
+
+	- Structure and Layout
+		- Site Containers
+		- Title
+		- Column Widths and Positions
+		- Column Classes
+
+	- Classes and Ids
+		app
+		-header
+		--header-col-1
+		--header-col-2
+		--header-col-3
+
+		-content
+		--sidebar
+		---barra-jornadas
+
+		--principal
+		---boton-new-day
+		---contenido-jornada
+
+	-footer
+
+	- Media Queries
+		- max-width: 1139px
+		- max-width: 1023px
+		- max-width: 767px
+
+Estructura del contenido de un selector
+
+	/* Size */
+	/* Font and text */
+	/* Margin */
+	/* Padding */
+	/* Color */
+	/* Border */
+	/* Others * /
+
+
+*/
+
+
+/*
+Defaults
+---------------------------------------------------------------------------------------------------- */
+	
+	/* Body
+	------------------------------------------------------------------------------------------------ */
+
+
+
+body{
+
+	/* Size */
+
+	/* Font and text */
 	font-family: 'Raleway', sans-serif;
-	margin: 20px;
-	color: #ffffff;
 	text-align: center;
+
+	/* Margin */
+	margin: 20px;
+	
+	/* Padding */
+
+	/* Color */
+	background-color: #ff9900;
+	color: #ffffff;
+
+	/* Border */
+
+	/* Others */
+
 }
+
+	/* Button
+	------------------------------------------------------------------------------------------------ */
+
 
 button{
 
@@ -39,35 +123,43 @@ button:hover {
 }
 
 
-#plato-donas{
-	max-width: 90vw;
-	max-height: 50vh;
-	display: block;
-  margin-left: auto;
-  margin-right: auto;
+/* Classes and Ids
+------------------------------------------------------------------------------------------------ */
 
-}
-
+/* Header class
+------------------------------------------------------------------- */
 
 .header {
 
+	/* Size */
 	max-height: 50vh;
 
-	background-color: #999; /*gray color*/
+	/* Font and text */
+
+	/* Margin */
+
+	/* Padding */
 	padding-top: 1vh;
 	padding-bottom: 1vh;
 	padding-left: 2vw;
 	padding-right: 2vw;
 
-	border-radius: 20px;
+	/* Color */
+	background-color: #999; /*gray color*/
 
+	/* Border */
+	border-radius: 20px;
 	border-bottom: 8px solid black;
 	/*width, style, color*/
 
+	/* Others */
 	display: block;
 
 }
 
+
+/* Logo id
+------------------------------------------------------------------- */
 
 
 img#logo {
@@ -81,65 +173,154 @@ img#logo {
 
 }
 
-@media only screen and (max-width: 900px) {
-	img#logo {
-		max-width:10vh;
-	}
-}
+
+/* Sidebar class
+------------------------------------------------------------------- */
+
 
 .sidebar {
 
-	margin-top: 1vh;
+
+	/* Size */
+	height: 90vh;
+	width: 15vw;
+
 	max-height: 65vh;
 
-	background-color: #999; /*gray color*/
+
+	/* Font and text */
+
+	/* Margin */
+	margin-top: 1vh;
+
+	/* Padding */
 	padding-top: 1vh;
 	padding-bottom: 1vh;
 	padding-left: 2vw;
 	padding-right: 2vw;
 
+
+	/* Color */
+	background-color: #999; /*gray color*/
+
+	/* Border */
 	border-radius: 20px;
-
 	border-bottom: 8px solid black;
-
-	height: 90vh;
-	width: 15vw;
 	/*width, style, color*/
 
+
+	/* Others */
 	display: block;
 	float: left;
+	overflow-y: scroll;
+	overflow-x: hidden;
 
 }
+
+
+/* principal class
+------------------------------------------------------------------- */
+
 
 .principal {
 
-	margin-top: 1vh;
+	/* Size */
+	height: 90vh;
+	width: 65vw;
+
 	max-height: 65vh;
 
-	background-color: #eee; /*gray color*/
+	/* Font and text */
+
+	/* Margin */
+	margin-top: 1vh;
+
+	/* Padding */
 	padding-top: 1vh;
 	padding-bottom: 1vh;
 	padding-left: 2vw;
 	padding-right: 2vw;
 
+
+	/* Color */
+	background-color: #eee; /*gray color*/
+
+	/* Border */
 	border-radius: 20px;
+	border-bottom: 8px solid black; /*width, style, color*/
 
-	border-bottom: 8px solid black;
-
-	height: 90vh;
-	width: 65vw;
-	/*width, style, color*/
-
+	/* Others */	
 	float: right;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
+
+/* contenido-jornada
+------------------------------------------------------------------- */
+
+
+#contenido-jornada{
+	color: #000;
+	text-align: left;
+
+	margin-top: 3vh;
+}
+
+/*
+#focus {
+	color: #fff;
+	font-weight: 600;
+	font-size: 20px;
+
+	position: fixed;
+	top: 40vh;
+	left: 40vw;
+	
+	background-color: #e22;
+	padding: 5% 5% 5% 5%;
+
+	box-shadow: 1vw 1vh 40px 1px #f90;
+
+}
+*/
+
+/* imagenProducto
+------------------------------------------------------------------- */
+
+img.imagenProducto{
+
+	/* Size */
+	width: 18vw;
+	height: auto;
+
+	max-width: 120px;
+	/* Font and text */
+	/* Margin */
+	/* Padding */
+	/* Color */
+	/* Border */
+	border-radius:30%
+	/* Others */
+	
+}
+
+/* footer class
+------------------------------------------------------------------- */
+
 
 .footer{
 	float:right;
 }
 
-#day-content{
-	color: #000;
-	text-align: left;
 
-	margin-top: 3vh;
+/*
+Media Queries
+---------------------------------------------------------------------------------------------------- */
+
+
+
+@media only screen and (max-width: 900px) {
+	img#logo {
+		max-width:10vh;
+	}
 }
