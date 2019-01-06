@@ -32,6 +32,8 @@ Estructura funcional
 		1.9.1 costos
 
 Y crear una coleccion ordenada de los productos de vladimiro
+	Crear subcolecciones filtrando el array por categorias (ver array.filter() )
+
 
 2. Puedo crear un objeto jornada que
 
@@ -86,29 +88,8 @@ const contenidoDeSidebar = document.getElementById("barra-jornadas")
 /*DECLARACIÓN DE CLASES
 ========================*/
 
-/*
-1. Puedo crear un objeto producto que almacene
-	1.1 el nombre de cada producto
-	1.2 la imagen de cada producto
-	1.3 la frase cool de cada producto
 
-	1.4 el precio de cada producto
-	1.5 la ganancia de cada producto
-
-	1.6 el stock de cada producto actual
-
-	1.7 la categoria tipo del producto: dona, helado, tortas, otros
-	1.8 tipo de produccion: comprado o realizado por vladimiro o un mix
-
-	1.9 ingredientes
-		1.9.1 costos
-
-Y crear una coleccion ordenada de los productos de vladimiro
-
-*/
-
-
-//Creando la clase producto
+//Creando la clase Producto
 class Producto {
 	constructor(nombre,categoria,imagenLink, frase, precio, ganancia, stock){
 		this.nombre = nombre
@@ -127,12 +108,9 @@ class Producto {
 
 	}
 
-	generoDePalabra(palabra) {
+	generoDePalabraMasculino(palabra) {
 
 		//Variables
-		
-		
-
 		const ultimaLetra = palabra.length - 1
 		const peultimaLetra = palabra.length - 2
 
@@ -148,12 +126,12 @@ class Producto {
 		let categoria = this.categoria
 		
 		//logica
-		if( this.generoDePalabra(this.categoria) ) {
-			texto = `Esta ${categoria} es el ${this.nombre} ` 
+		if( this.generoDePalabraMasculino(this.categoria) ) {
+			texto = `${this.nombre} | ${categoria}` 
 		}
 
 		else{
-			texto = `Esta ${categoria} es la ${this.nombre} `	
+			texto = `${this.nombre} | ${categoria} `	
 		}
 	
 
@@ -181,16 +159,106 @@ let catalogo = [
 
 ];
 
-//Ciclo for aplicado a una coleccion de objetos
-//para los producto del catalogo ...
-for (let i = 0; i < catalogo.length ; i++){
-	catalogo[i].mostrar(contenidoDeSidebar)
+/*
+2. Puedo crear un objeto jornada que
 
+	0.1 Tenga un dia especifico [HECHO]
+	0.2 un Id [PAUSA]
+		¿Como creo una serie de numero irrepetibles?
+		Esta secuencia se debe aumentar cada vez que se crea un nuevo objeto jornada
+		Esta secuencia debe ser parte de un array
+
+
+	2.1 Reciba la cantidad de productos que lleva para el dia de venta
+
+	2.2 Calcule las ventas maximas, las utilidades que implica esa cantidad de productos en la jornada
+
+	2.3 Calcule la diferencia entre lo que llevo y lo que tiene cuando volvio de la jornada
+		1.3.1 calcule la diferencia desglosada por cada producto especifico (me quedaron 3 donas, 1 helado de pie)
+
+	2.4 Calcule el dinero que tiene encima
+		2.4.1 Calcule las utilidades
+		2.4.2 Si el dinero que tiene es igual al dinero que conto todo esta bien.
+		2.4.3 Si no, hay problemas y tiene que ver en que gastó dinero o quien le debe dinero.
+
+	2.5 Una vez eso se resuelve,
+	 si le queda poca mercancia o insuficiente (¿Que es poca mercancia?)(¿O insuficiente?) va a 
+	 	Comprar mas donas y mando link para hacerlo sea ws o una web con lo necesario del pedido
+	 	o
+	 	Hace más repostería el mismo.
+
+	2.6 Ademas Vladimiro analiza si las ventas del dia estuvieron buenas,
+		 si vendió todo obviamente estan buenas, 
+		 si le quedaron menos de 10 estuvieron buenas, 
+		 si le quedaron mas de 25 estuvieron malas
+*/
+class Jornada {
+
+	constructor( ) {
+
+		//atributos y metodos inicializados
+
+		this.fecha = new Date; //Arroja la fecha de hoy
+		this.stockInicial = this.calcularStockInicial(); //Cantidad de productos que lleva esta jornada
+		this.stockFinal = this.calcularStockFinal();
+		
+	}
+
+	/*METODOS DE CALCULO DE STOCK
+	=========================================*/
+
+	calcularStockInicial() {
+		//calcular stock inicial del dia en funcion de la cantidad de productos que quiere llevar
+		//Desglosar en stock total y stock especifico
+
+		/*Formulario
+		////////////////////
+
+		     <h2>¿Que quieres llevar?</h2>
+
+		Producto X    Producto X    Producto X
+		 [imagen]      [imagen]      [imagen]
+		[cantidad]    [cantidad]    [cantidad]
+
+		Producto X    Producto X    Producto X
+		 [imagen]      [imagen]      [imagen]
+		[cantidad]    [cantidad]    [cantidad]
+
+		Producto X    Producto X    Producto X
+		 [imagen]      [imagen]      [imagen]
+		[cantidad]    [cantidad]    [cantidad]
+
+						//////
+						ENVIAR
+						//////
+
+		//////////////////////////////
+
+		return Array(productosLlevados)
+		stock = longitud array + 1, porque los array empiezan en 0
+
+		quiero llevar
+
+		nutella 5
+		pie 3
+		limon 4
+		
+		sumar con un reduce?
+		*/
+	}
+
+	calcularStockFinal() {
+			//calcular stock final del dia en funcion de la cantidad de productos que le quedo
+
+			//stockInicial - stockVendido
+	}
+
+	//////////////////////////////////////////////
+
+	//metodos
 }
 
 
-strJornada = contenidoDeJornada.innerHTML
-strJornada.charAt(0)
 
 /*DECLARACIÓN DE OBJETOS
 ============================*/		
@@ -205,6 +273,21 @@ strJornada.charAt(0)
 ========================================0*/
 
 
+//Ciclo for aplicado a una coleccion de objetos
+//para los producto del catalogo ...
+for (let i = 0; i < catalogo.length ; i++){
+	catalogo[i].mostrar(contenidoDeSidebar)
+
+}
+
+
+strJornada = contenidoDeJornada.innerHTML
+strJornada.charAt(0)
+
+diaDePrueba = new Jornada;
+
+console.log(diaDePrueba)
+
 /*RENDER HTML
 =======================================*/
 
@@ -214,5 +297,8 @@ titulos[0].textContent = titulos[0].textContent.toUpperCase()
 /*
 ===============================================================================
 IDEAS CLAVES
+FEATURES =>
 
+ENVIAR POR WHASTAPP SU PEDIDO A PROVEEDOR CON LA API PARA ENVIAR MENSAJE
+EN FUNCION DE LO QUE LE HACE FALTA
 */
