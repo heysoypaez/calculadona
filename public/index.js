@@ -78,11 +78,20 @@ console.log("Inicializando archivo")
 
 const texto = document.createTextNode("Hola, soy Chávez")
 const titulos = document.getElementsByTagName('h1');
+
+//Contenido
 const contenidoDeJornada = document.getElementById("contenido-jornada")
 const contenidoDeSidebar = document.getElementById("barra-jornadas")
 
+//Formularios
+const inputStockInicial = document.getElementById("input-stock-inicial")
 
+//Botones
+const botonInputStockInicial = document.getElementById("boton-input-stock-inicial")
 
+function ocultar() {
+	inputStockInicial.classList.toggle("oculto")
+}
 
 
 /*DECLARACIÓN DE CLASES
@@ -120,6 +129,8 @@ class Producto {
 	}
 
 //funcion que muestra las caracteristicas claves del producto
+	
+
 	mostrar(lugar) {
 
 		let texto 
@@ -191,6 +202,8 @@ let catalogo = [
 		 si vendió todo obviamente estan buenas, 
 		 si le quedaron menos de 10 estuvieron buenas, 
 		 si le quedaron mas de 25 estuvieron malas
+
+3. Una clase formulario?
 */
 class Jornada {
 
@@ -204,10 +217,128 @@ class Jornada {
 		
 	}
 
+
+	/*Formularios
+	======================*/
+
+
+crearFormularioStockInicial() {
+
+//Nuestro elemento formulario esta en esta variable
+inputStockInicial;
+			/*Formulario
+		////////////////////
+
+						<h2>¿Qué llevarás (Y venderás) hoy?</h2>
+						<label for = "nombreUsuario">¿Cómo te llamas? </label>
+						<br />
+						<input type="text" name="nombre" id="nombreUsuario" />
+
+						<br />
+
+						<label for = "apellidoUsuario">¿Tu apellido? </label>
+						<br />
+						<input type="text" name="apellido" id="apellidoUsuario" />
+
+						<br />
+
+						<label for = "edadUsuario">¿Y la edad? Por favor </label>
+						<br />
+						<input type="number" name="edad" id="edadUsuario" />
+
+						<br />
+						<input type="button" name="" value="Envia!" id="boton-input-stock-inicial" onClick="ocultar()" />
+
+		     <h2>¿Que quieres llevar?</h2>
+
+		Producto X    Producto X    Producto X
+		 [imagen]      [imagen]      [imagen]
+		[cantidad]    [cantidad]    [cantidad]
+
+		Producto X    Producto X    Producto X
+		 [imagen]      [imagen]      [imagen]
+		[cantidad]    [cantidad]    [cantidad]
+
+		Producto X    Producto X    Producto X
+		 [imagen]      [imagen]      [imagen]
+		[cantidad]    [cantidad]    [cantidad]
+
+						//////
+						ENVIAR
+						//////
+
+		//////////////////////////////
+
+		return Array(productosLlevados)
+		stock = longitud array + 1, porque los array empiezan en 0
+
+		quiero llevar
+
+		nutella 5
+		pie 3
+		limon 4
+		
+		sumar con un reduce?
+		*/
+
+const formulario = {
+	titulo : document.createElement("H2"),
+
+	//Producto
+	imagenProducto: document.createElement("IMG"),
+	nombreProducto: document.createElement("P"),
+
+	CategoriaProducto: document.createElement("P"),
+	botonProducto : document.createElement("INPUT"),
+	
+	
+}
+
+formulario.titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
+formulario.botonProducto.type = "number"
+
+
+
+
+/*Quiero crear un ciclo de los productos en catalogo
+
+ que me agregue atributos en el objeto formulario
+con el nombre, la categoria, el input de los productos para pedir
+
+*/
+
+//Con catalogo hacemos referencia al catalogo de productos
+for (let i = 0; i < catalogo.length; i++) {
+
+	formulario.nombreProducto.innerHTML = catalogo[i].nombre
+	formulario.imagenProducto = catalogo[i].imagen
+	formulario.CategoriaProducto.innerHTML = `Categoria: ${catalogo[i].categoria}`
+
+}
+
+
+
+
+console.log(formulario)
+
+
+//Generando el Ouput
+
+	for (let atributo in formulario) {
+		inputStockInicial.appendChild( formulario[atributo] )
+	}
+	
+
+}
+
+
 	/*METODOS DE CALCULO DE STOCK
 	=========================================*/
 
 	calcularStockInicial() {
+
+		this.crearFormularioStockInicial()
+
 		//calcular stock inicial del dia en funcion de la cantidad de productos que quiere llevar
 		//Desglosar en stock total y stock especifico
 
@@ -259,15 +390,19 @@ class Jornada {
 }
 
 
-
 /*DECLARACIÓN DE OBJETOS
-============================*/		
+============================================*/		
 
 
+/*MANIPULANDO EL OBJETO FORMULARIO
+============================*/
+/*
+let inputStockInicialProducto = ""
+inputStockInicial.appendChild(inputStockInicialProducto)
+*/
 
 /*DECLARACIÓN DE FUNCIONES
 ========================================================*/
-
 
 /*EJECUCIÓN DE FUNCIONES Y PROMESAS
 ========================================0*/
@@ -280,9 +415,6 @@ for (let i = 0; i < catalogo.length ; i++){
 
 }
 
-
-strJornada = contenidoDeJornada.innerHTML
-strJornada.charAt(0)
 
 diaDePrueba = new Jornada;
 
