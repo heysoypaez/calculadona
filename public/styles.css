@@ -19,6 +19,9 @@ URL código: github.com/heysoypaez
 		- Column Widths and Positions
 		- Column Classes
 
+	-Estados
+		-oculto
+
 	- Classes and Ids
 		app
 		-header
@@ -32,6 +35,8 @@ URL código: github.com/heysoypaez
 
 		--principal
 		---boton-new-day
+		---- form #input Formulario input-stock-inicial
+
 		---contenido-jornada
 
 	-footer
@@ -121,6 +126,18 @@ button:hover {
 	background-color: #f00;
 	border-bottom: 1px solid black;
 }
+
+
+/* Estados
+------------------------------------------------------------------------------------------------ */
+
+/* oculto
+------------------------------------------------------------------- */
+
+.oculto {
+	display: none;
+}
+
 
 
 /* Classes and Ids
@@ -253,6 +270,17 @@ img#logo {
 	float: right;
 	overflow-y: scroll;
 	overflow-x: hidden;
+}
+
+/* Formulario input-stock-inicial
+------------------------------------------------------------------- */
+
+form#input-stock-inicial {
+	background-color: pink;
+	text-align: center;
+	padding-top: 2vh;
+	padding-bottom: 4vh;
+	border-radius: 20px;
 }
 
 /* contenido-jornada
