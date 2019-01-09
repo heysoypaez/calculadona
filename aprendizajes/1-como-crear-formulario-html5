@@ -1,0 +1,21 @@
+Resultado
+
+Las etiquetas claves para crear un formulario de htmlt5 son
+
+<form>
+form funciona como un contenedor de input del  usuario
+
+<input>
+input es una caja de input especifica
+
+segun el type o tipo de input la caja varia
+<textare>
+<button>
+
+
+//
+submit sirve mas para una conversacion cliente servidor
+
+este recarga la pagina
+
+button es mas para la interactividad dentro de la misma pagina
