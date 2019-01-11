@@ -62,9 +62,6 @@ Y crear una coleccion ordenada de los productos de vladimiro
 		 si le quedaron menos de 10 estuvieron buenas, 
 		 si le quedaron mas de 25 estuvieron malas
 
-
-
-
 */
 
 
@@ -226,61 +223,6 @@ crearFormularioStockInicial() {
 
 //Nuestro elemento formulario esta en esta variable
 inputStockInicial;
-			/*Formulario
-		////////////////////
-
-						<h2>¿Qué llevarás (Y venderás) hoy?</h2>
-						<label for = "nombreUsuario">¿Cómo te llamas? </label>
-						<br />
-						<input type="text" name="nombre" id="nombreUsuario" />
-
-						<br />
-
-						<label for = "apellidoUsuario">¿Tu apellido? </label>
-						<br />
-						<input type="text" name="apellido" id="apellidoUsuario" />
-
-						<br />
-
-						<label for = "edadUsuario">¿Y la edad? Por favor </label>
-						<br />
-						<input type="number" name="edad" id="edadUsuario" />
-
-						<br />
-						<input type="button" name="" value="Envia!" id="boton-input-stock-inicial" onClick="ocultar()" />
-
-		     <h2>¿Que quieres llevar?</h2>
-
-		Producto X    Producto X    Producto X
-		 [imagen]      [imagen]      [imagen]
-		[cantidad]    [cantidad]    [cantidad]
-
-		Producto X    Producto X    Producto X
-		 [imagen]      [imagen]      [imagen]
-		[cantidad]    [cantidad]    [cantidad]
-
-		Producto X    Producto X    Producto X
-		 [imagen]      [imagen]      [imagen]
-		[cantidad]    [cantidad]    [cantidad]
-
-						//////
-						ENVIAR
-						//////
-
-		//////////////////////////////
-
-		return Array(productosLlevados)
-		stock = longitud array + 1, porque los array empiezan en 0
-
-		quiero llevar
-
-		nutella 5
-		pie 3
-		limon 4
-		
-		sumar con un reduce?
-		*/
-
 
 class productoFormulario {
 
@@ -312,74 +254,47 @@ const formulario = {
 
 	/*empujare los productos de los cuales solicitare stock aca*/
 	new productoFormulario(0),
-	
 
-
-	]
-	
-	
+	]		
 	
 }
-
-/*
-entonces lo que haras sera empujar dentro de la coleccion de productos un objeto producto
-con su imagen, su nombre, su categoria, su boton para introducir la data
-
-*/
 
 formulario.titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
 
 
-
-/*Quiero hacer un commit mostrando todo la coleccion de productos para colocar el input*/
-
-
-
-/*Quiero crear un ciclo de los productos en catalogo
-
- que me agregue atributos en el objeto formulario
-con el nombre, la categoria, el input de los productos para pedir
-
-*/
-
-
-
 /*GENERANDO EL OUPUT
-======================*/
+=====================================================*/
 
-//Funcion para renderear en el html
+/* FUNCION PARA RENDER EN HTML 
+===============================*/
 const render = (contenedor, elemento) => inputStockInicial.appendChild( contenedor[elemento] )
 
-//Ciclo para ejecutar el render
+
+
+/*CICLO PARA EJECUCION DE RENDER
+================================*/
 	for (let atributo in formulario) {
 
 		//Si el valor del atributo del formulario es productos....
 		if (atributo === "productos" ) {
 
-				//Por cada producto en la coleccion de productos del formulario (ES ARRAY)
-				for (let producto of formulario.productos ) {
+			//Por cada producto en la coleccion de productos (ARRAY)
+			for (let producto of formulario.productos ) {
 
-					//Por cada caracteristica de cada producto (ES OBJETO)
-					for(let caracteristica in producto) {
+				//Por cada caracteristica de cada producto (OBJETO)
+				for(let caracteristica in producto) {
 
-						//Me lo vas a renderear en pantalla
-						render(producto, caracteristica )
-					}
-
-					
+					//Me lo vas a renderear en pantalla
+					render(producto, caracteristica )
 				}
-				
+			}
 		} 
 
-		//Si no esto otro
+		//Si no esto otro:
 		else {
-
-			render(formulario, atributo)
+		render(formulario, atributo)
 		}
-
 	}
-	
-
 }
 
 
@@ -392,38 +307,14 @@ const render = (contenedor, elemento) => inputStockInicial.appendChild( contened
 
 		//calcular stock inicial del dia en funcion de la cantidad de productos que quiere llevar
 		//Desglosar en stock total y stock especifico
-
-		/*Formulario
-		////////////////////
-
-		     <h2>¿Que quieres llevar?</h2>
-
-		Producto X    Producto X    Producto X
-		 [imagen]      [imagen]      [imagen]
-		[cantidad]    [cantidad]    [cantidad]
-
-		Producto X    Producto X    Producto X
-		 [imagen]      [imagen]      [imagen]
-		[cantidad]    [cantidad]    [cantidad]
-
-		Producto X    Producto X    Producto X
-		 [imagen]      [imagen]      [imagen]
-		[cantidad]    [cantidad]    [cantidad]
-
-						//////
-						ENVIAR
-						//////
-
-		//////////////////////////////
-
+/*
 		return Array(productosLlevados)
 		stock = longitud array + 1, porque los array empiezan en 0
 
-		quiero llevar
-
-		nutella 5
-		pie 3
-		limon 4
+		quiero llevar:
+		- nutella 5
+		- pie 3
+		- limon 4
 		
 		sumar con un reduce?
 		*/
@@ -434,8 +325,6 @@ const render = (contenedor, elemento) => inputStockInicial.appendChild( contened
 
 			//stockInicial - stockVendido
 	}
-
-	//////////////////////////////////////////////
 
 	//metodos
 }
