@@ -10,7 +10,7 @@ URL código: github.com/heysoypaez
 
 NOTICIAS
 => 400 pesos se gana a cada helado
-
+=> Whatsapp con un logo chico y la api sirve para enviar un mensaje
 
 
 Estructura funcional
@@ -281,22 +281,57 @@ inputStockInicial;
 		sumar con un reduce?
 		*/
 
+
+class productoFormulario {
+
+	constructor(index) {
+
+			this.imagen = document.createElement("IMG")
+			this.imagen = catalogo[index].imagen
+
+			this.nombre = document.createElement("P")
+			this.nombre.innerHTML = catalogo[index].nombre
+
+			this.categoria = document.createElement("P")
+			this.categoria.innerHTML = `Categoria: ${catalogo[index].categoria}`
+
+			this.botonStock = document.createElement("INPUT")
+			this.botonStock.type = "number"
+
+	}		
+}
+		
+
 const formulario = {
+
 	titulo : document.createElement("H2"),
 
-	//Producto
-	imagenProducto: document.createElement("IMG"),
-	nombreProducto: document.createElement("P"),
+	/*Input de Producto
+	=======================*/
+	productos: [
 
-	CategoriaProducto: document.createElement("P"),
-	botonProducto : document.createElement("INPUT"),
+	/*empujare los productos de los cuales solicitare stock aca*/
+	new productoFormulario(0),
+	
+
+
+	]
+	
 	
 	
 }
 
-formulario.titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
-formulario.botonProducto.type = "number"
+/*
+entonces lo que haras sera empujar dentro de la coleccion de productos un objeto producto
+con su imagen, su nombre, su categoria, su boton para introducir la data
 
+*/
+
+formulario.titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
+
+
+
+/*Quiero hacer un commit mostrando todo la coleccion de productos para colocar el input*/
 
 
 
@@ -307,25 +342,41 @@ con el nombre, la categoria, el input de los productos para pedir
 
 */
 
-//Con catalogo hacemos referencia al catalogo de productos
-for (let i = 0; i < catalogo.length; i++) {
-
-	formulario.nombreProducto.innerHTML = catalogo[i].nombre
-	formulario.imagenProducto = catalogo[i].imagen
-	formulario.CategoriaProducto.innerHTML = `Categoria: ${catalogo[i].categoria}`
-
-}
 
 
+/*GENERANDO EL OUPUT
+======================*/
 
+//Funcion para renderear en el html
+const render = (contenedor, elemento) => inputStockInicial.appendChild( contenedor[elemento] )
 
-console.log(formulario)
-
-
-//Generando el Ouput
-
+//Ciclo para ejecutar el render
 	for (let atributo in formulario) {
-		inputStockInicial.appendChild( formulario[atributo] )
+
+		//Si el valor del atributo del formulario es productos....
+		if (atributo === "productos" ) {
+
+				//Por cada producto en la coleccion de productos del formulario (ES ARRAY)
+				for (let producto of formulario.productos ) {
+
+					//Por cada caracteristica de cada producto (ES OBJETO)
+					for(let caracteristica in producto) {
+
+						//Me lo vas a renderear en pantalla
+						render(producto, caracteristica )
+					}
+
+					
+				}
+				
+		} 
+
+		//Si no esto otro
+		else {
+
+			render(formulario, atributo)
+		}
+
 	}
 	
 
