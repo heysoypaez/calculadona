@@ -283,6 +283,36 @@ form#input-stock-inicial {
 	border-radius: 20px;
 }
 
+
+/*Clase producto Formulario
+======================================*/
+
+.productoFormulario{
+	background-color: red;
+	color: white;
+	width: 40%;
+	height: 250px;
+
+	border-radius: 30px;
+	float: left;
+
+	/* Padding */
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	padding-left: 2vw;
+	padding-right: 2vw;
+
+
+	margin-left: 1vw;
+	margin-right: 1vw;
+	margin-top: 6vh;
+	margin-bottom: 1vh;
+
+	box-shadow: gray 5px 5px 5px
+}
+
+
+
 /* contenido-jornada
 ------------------------------------------------------------------- */
 

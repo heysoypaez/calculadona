@@ -101,3 +101,39 @@ Y crear una coleccion ordenada de los productos de vladimiro
 //Recursos
 
 https://www.facebook.com/pg/donuts.paradise.cl/photos/
+
+
+
+
+
+
+
+
+
+//Bosetos
+
+formulario para input de stock
+
+
+		/*Formulario
+		////////////////////
+
+		     <h2>¿Que quieres llevar?</h2>
+
+		Producto X    Producto X    Producto X
+		 [imagen]      [imagen]      [imagen]
+		[cantidad]    [cantidad]    [cantidad]
+
+		Producto X    Producto X    Producto X
+		 [imagen]      [imagen]      [imagen]
+		[cantidad]    [cantidad]    [cantidad]
+
+		Producto X    Producto X    Producto X
+		 [imagen]      [imagen]      [imagen]
+		[cantidad]    [cantidad]    [cantidad]
+
+						//////
+						ENVIAR
+						//////
+
+		//////////////////////////////

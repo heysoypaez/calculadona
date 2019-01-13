@@ -163,7 +163,6 @@ let catalogo = [
 	new Producto("Helado de Chocolate", "Helado", "../src/images/donas-licor-manjar-frutos-rojos.jpg"),
 	new Producto("Helado de Oreo","helado", "../src/images/donas-piramide-apilada.jpg"),
 	new Producto("Mini Dona","Dona","../src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 1500, 400, 5),
-	new Producto("Galleta Oreo", "Galleta", "../src/images/donas-licor-manjar-frutos-rojos.jpg")
 
 ];
 
@@ -240,6 +239,17 @@ class productoFormulario {
 			this.botonStock = document.createElement("INPUT")
 			this.botonStock.type = "number"
 
+			//================
+			this.contenedorDiv = document.createElement("DIV")
+			this.contenedorDiv.className = "productoFormulario"; 
+
+			this.contenedorDiv.appendChild(this.imagen)
+			this.contenedorDiv.appendChild(this.nombre)
+			this.contenedorDiv.appendChild(this.categoria)
+			this.contenedorDiv.appendChild(this.botonStock)
+			
+			
+
 	}		
 }
 		
@@ -253,13 +263,26 @@ const formulario = {
 	productos: [
 
 	/*empujare los productos de los cuales solicitare stock aca*/
-	new productoFormulario(0),
+	
+	],
 
-	]		
+	botonEnviar: document.createElement("button")		
 	
 }
 
+
+/*Ciclo para pasar todos los objetos del catalogo de productos a la coleccion de productos del objeto for*/
+for (let i = 0; i < catalogo.length; i++ ) {
+
+	let productos = formulario.productos;
+	productos.push( new productoFormulario(i) )
+
+}
+
+
+
 formulario.titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
+formulario.botonEnviar.innerHTML = "Enviar lo que llevaré hoy"
 
 
 /*GENERANDO EL OUPUT
@@ -281,14 +304,14 @@ const render = (contenedor, elemento) => inputStockInicial.appendChild( contened
 			//Por cada producto en la coleccion de productos (ARRAY)
 			for (let producto of formulario.productos ) {
 
-				//Por cada caracteristica de cada producto (OBJETO)
-				for(let caracteristica in producto) {
+				console.log(producto.contenedorDiv)
 
 					//Me lo vas a renderear en pantalla
-					render(producto, caracteristica )
+					inputStockInicial.appendChild(producto.contenedorDiv)
+
 				}
 			}
-		} 
+		 
 
 		//Si no esto otro:
 		else {
