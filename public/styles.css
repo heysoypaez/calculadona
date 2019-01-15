@@ -1,9 +1,9 @@
 /*
-Autor: Daniel Páez
+Autor: Daniel PÃ¡ez
 URL Autor: https://heysoypaez
-Tema de la aplicación: calculadora para un negocio de reposteria 
-Descripción: aplicacion que ayuda a calcular los gastos, ingresos, ganancias, stock de un negocio de reposteria
-URL código: github.com/heysoypaez
+Tema de la aplicaciÃ³n: calculadora para un negocio de reposteria 
+DescripciÃ³n: aplicacion que ayuda a calcular los gastos, ingresos, ganancias, stock de un negocio de reposteria
+URL cÃ³digo: github.com/heysoypaez
 */
  
 /* Table of Contents
@@ -43,9 +43,10 @@ URL código: github.com/heysoypaez
 
 	- Media Queries
 		- max-width: 1139px
-		- max-width: 1023px
-		- max-width: 767px
+		- max-width: 900px
+		- max-width: 450px
 
+================
 Estructura del contenido de un selector
 
 	/* Size */
@@ -376,9 +377,129 @@ Media Queries
 ---------------------------------------------------------------------------------------------------- */
 
 
-
+/*Tablets */
 @media only screen and (max-width: 900px) {
 	img#logo {
 		max-width:10vh;
 	}
 }
+
+@media only screen and (max-width: 550px) {
+	
+	body {
+
+	}
+
+
+/* Sidebar class
+------------------------------------------------------------------- */
+
+
+.sidebar {
+
+
+	/* Size */
+	height: 18vh;
+	width: 87vw;
+
+	max-height: 65vh;
+
+
+	/* Font and text */
+
+	/* Margin */
+	margin-top: 1vh;
+
+	/* Padding */
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	padding-left: 2vw;
+	padding-right: 2vw;
+
+
+	/* Color */
+	background-color: #999; /*gray color*/
+
+	/* Border */
+	border-radius: 20px;
+	border-bottom: 8px solid black;
+	/*width, style, color*/
+
+
+	/* Others */
+	display: block;
+	float: left;
+	overflow-y: scroll; /*Por invertir*/
+	overflow-x: hidden;
+
+	}
+
+	/* principal class
+------------------------------------------------------------------- */
+
+
+.principal {
+
+	/* Size */
+	height: 90vh;
+	width: 87vw;
+
+	max-height: 65vh;
+
+	/* Font and text */
+
+	/* Margin */
+	margin-top: 1vh;
+
+	/* Padding */
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	padding-left: 2vw;
+	padding-right: 2vw;
+
+
+	/* Color */
+	background-color: #eee; /*gray color*/
+
+	/* Border */
+	border-radius: 20px;
+	border-bottom: 8px solid black; /*width, style, color*/
+
+	/* Others */	
+	float: right;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	}
+
+
+	/*Clase producto Formulario
+======================================*/
+
+.productoFormulario{
+	background-color: red;
+	color: white;
+	width: 60vw;
+	height: 40vh;
+
+	border-radius: 30px;
+	float: left;
+
+	/* Padding */
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	padding-left: 2vw;
+	padding-right: 2vw;
+
+
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3vh;
+	margin-bottom: 1vh;
+
+	
+	}
+
+
+
+}
+
