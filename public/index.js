@@ -79,6 +79,8 @@ const titulos = document.getElementsByTagName('h1');
 //Contenido
 const contenidoDeJornada = document.getElementById("contenido-jornada")
 const contenidoDeSidebar = document.getElementById("barra-jornadas")
+const carruselProductosSidebar = document.getElementById("carrusel-productos-sidebar")
+
 
 //Formularios
 const inputStockInicial = document.getElementById("input-stock-inicial")
@@ -146,9 +148,28 @@ class Producto {
 		//Reasignamos el contenido con nuevos textos
 
 		//OUTPUT , retorno
-		lugar.innerHTML += `<li> ${texto} </li>`
+		let contenedorDiv = document.createElement("DIV")
+		contenedorDiv.className = "productosSidebar"; 
+
+		lugar.appendChild(contenedorDiv);
+
+		let lista = document.createElement("LI")
+		lista.innerHTML += `${texto}`
+
+
+		contenedorDiv.appendChild(lista)
+
 		//Esta imagen queda justo debajo del texto
-		lugar.appendChild(this.imagen)
+
+		const imagen = document.createElement("IMG")
+		imagen.src = this.imagen.src
+		imagen.className = this.imagen.className 
+		
+
+
+
+		contenedorDiv.appendChild(imagen)
+		console.log(imagen)
 
 	}
 
@@ -374,7 +395,7 @@ inputStockInicial.appendChild(inputStockInicialProducto)
 //Ciclo for aplicado a una coleccion de objetos
 //para los producto del catalogo ...
 for (let i = 0; i < catalogo.length ; i++){
-	catalogo[i].mostrar(contenidoDeSidebar)
+	catalogo[i].mostrar(carruselProductosSidebar)
 
 }
 

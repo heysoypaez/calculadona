@@ -1,3 +1,21 @@
+//Guardando en variable un nuevo elemento html de tipo párrafo <p> </p>
+let textoEjemplo  = document.createElement("P")
+
+//Colocando el contenido interno de nuestra nueva etiqueta p
+textoEjemplo.innerHTML = "Anímate hoy crearas un gran día"
+
+//Obteniendo el elemento titulo por su id
+let tituloEjemplo = document.getElementById("titulo-input-stock-inicial")
+
+//Verificando que sea quien creemos que es
+console.log(tituloEjemplo)
+
+//Mostrando en pantalla
+tituloEjemplo.appendChild(textoEjemplo)
+
+
+
+
 Esto es una mini aplicación web  para calcular la econonomia diaria del negocio de reposteria de Vladimiro y hacer nuevos productos de acuerdo a su economia de forma rápida, útil y entretenida :D
 
 Vladimiro vende donas, tortas y helados. 

@@ -399,13 +399,11 @@ Media Queries
 
 
 	/* Size */
-	height: 18vh;
+	height:23vh;
 	width: 87vw;
 
 	max-height: 65vh;
 
-
-	/* Font and text */
 
 	/* Margin */
 	margin-top: 1vh;
@@ -416,23 +414,36 @@ Media Queries
 	padding-left: 2vw;
 	padding-right: 2vw;
 
-
-	/* Color */
-	background-color: #999; /*gray color*/
-
-	/* Border */
-	border-radius: 20px;
-	border-bottom: 8px solid black;
-	/*width, style, color*/
-
-
 	/* Others */
 	display: block;
 	float: left;
-	overflow-y: scroll; /*Por invertir*/
-	overflow-x: hidden;
+	overflow-y: hidden; /*Por invertir*/
+	overflow-x: scroll;
 
 	}
+
+
+.productosSidebar {
+	width: 100px;
+	height:inherit;
+
+	/* Padding */
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	padding-left: 2vw;
+	padding-right: 2vw;
+
+	display: inline-block;
+
+
+
+}
+
+#carrusel-productos-sidebar{
+	width: 500px;
+}
+
+
 
 	/* principal class
 ------------------------------------------------------------------- */
