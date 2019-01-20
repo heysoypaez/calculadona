@@ -51,10 +51,11 @@ class Jornada {
 	======================*/
 
 
-crearFormularioStockInicial() {
+formularioStockInicial() {
 
-//Nuestro elemento formulario esta en esta variable
-inputStockInicial;
+
+/*DECLARACION DE CLASES
+===========================*/
 
 class productoFormulario {
 
@@ -87,7 +88,8 @@ class productoFormulario {
 }		
 
 
-			
+/*DECLARACION DE OBJETOS
+===========================*/
 
 const formulario = {
 
@@ -106,31 +108,39 @@ const formulario = {
 }
 
 
-/*Ciclo para pasar todos los objetos del catalogo de productos a la coleccion de productos del objeto for*/
-for (let i = 0; i < catalogo.length; i++ ) {
+/*DECLARACION DE VARIABLES
+===========================*/
 
-	let productos = formulario.productos;
-	productos.push( new productoFormulario(i) )
-
-}
-
-
-
+//Anexando atributos a los elementos del DOM
 formulario.titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
 formulario.botonEnviar.innerHTML = "Enviar lo que llevaré hoy"
-
-
-/*GENERANDO EL OUPUT
-=====================================================*/
-
-/* FUNCION PARA RENDER EN HTML 
-===============================*/
-const render = (contenedor, elemento) => inputStockInicial.appendChild( contenedor[elemento] )
+formulario.botonEnviar.id = "boton-enviar-input-stock-inicial" 
+formulario.botonEnviar.onclick = guardarInputStockInicial
 
 
 
-/*CICLO PARA EJECUCION DE RENDER
-================================*/
+/*DECLARACION DE ARRAYS
+===========================*/
+
+/*DECLARACION DE FUNCIONES
+============================*/
+
+/* FUNCIONES CLASICAS
+===========*/
+function transferirCatalogoA(elemento) {
+
+let productos = elemento.productos;
+	/*Ciclo para pasar todos los objetos del catalogo de productos a la coleccion de productos del objeto for*/
+	for (let i = 0; i < catalogo.length; i++ ) {
+
+		productos.push( new productoFormulario(i) )
+
+	}
+}
+
+//Ciclo para ejecucion de render
+function renderFormulario()
+{
 	for (let atributo in formulario) {
 
 		//Si el valor del atributo del formulario es productos....
@@ -138,63 +148,80 @@ const render = (contenedor, elemento) => inputStockInicial.appendChild( contened
 
 			//Por cada producto en la coleccion de productos (ARRAY)
 			for (let producto of formulario.productos ) {
-
-				console.log(producto.contenedorDiv)
-
+		
 					//Me lo vas a renderear en pantalla
 					inputStockInicial.appendChild(producto.contenedorDiv)
 
 				}
 			}
 		 
-
-		//Si no esto otro:
+		//Si no son productos muestra directamente el atributo en el formulario
 		else {
 		render(formulario, atributo)
 		}
 	}
-
-
-	function guardarDataStockInicial() {
-
-
-
-/*
-R ¿Que resultado quiero?
-Quiero guardar en una variable los datos del input del formulario de manera persistente
-Quiero que esos se guarden cuando presionan el boton
-
-
-PM
-
-input.value
-document onclick
-
-local storage
-add event listener
-
-*/
-
-		window.localStorage
-		
-//Syntax for SAVING data to localStorage:
-localStorage.setItem("key", "value");
-
-//Syntax for READING data from localStorage:
-var lastname = localStorage.getItem("key");
-
-//Syntax for REMOVING data from localStorage:
-localStorage.removeItem("key");
-	}
 }
 
+
+	//Esta funcion es llamada en el boton
+	function guardarInputStockInicial() {
+
+
+	/*	R ¿Que resultado quiero?
+	Quiero guardar en una variable los datos del input del formulario de manera persistente
+	Quiero que esos se guarden cuando presionan el boton
+	*/
+
+	/*Variables
+	============*/
+	let key = "input-stock-inicial"
+	for (let i = 0; i < inputProductoFormulario.length; i++) {
+	
+	//Syntax for SAVING data to localStorage:
+	localStorage.setItem(`${key}{${i}}`, inputProductoFormulario[i].value);
+	
+	}
+
+
+	/*Render en pantalla
+	=========================*/
+	console.log(x)
+
+
+	//Syntax for READING data from localStorage:
+	var x = localStorage.getItem("inputStockInicial[0]");
+	
+	}
+
+	function consultarStockInicial(index) {
+		let productoConsultado = localStorage.getItem("inputStockInicial[0]"); 
+	}
+
+
+/*ARROW FUNCTIONS
+=========*/
+
+// funcion para render HTML 
+const render = (contenedor, elemento) => inputStockInicial.appendChild( contenedor[elemento] )
+
+
+/*EJECUCION DE FUNCIONES
+=========================*/
+
+transferirCatalogoA(formulario)
+//Render
+renderFormulario()
+
+}
+
+	
 
 	/*METODOS DE CALCULO DE STOCK
 	=========================================*/
 
 	calcularStockInicial() {
 
-		this.crearFormularioStockInicial()
+		this.formularioStockInicial()
 
 		//calcular stock inicial del dia en funcion de la cantidad de productos que quiere llevar
 		//Desglosar en stock total y stock especifico
