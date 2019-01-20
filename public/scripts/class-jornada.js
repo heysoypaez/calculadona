@@ -69,9 +69,9 @@ class productoFormulario {
 			this.categoria = document.createElement("P")
 			this.categoria.innerHTML = `Categoria: ${catalogo[index].categoria}`
 
-			this.botonStock = document.createElement("INPUT")
-			this.botonStock.type = "number"
-			this.botonStock.className = "input-producto-formulario"
+			this.inputStock = document.createElement("INPUT")
+			this.inputStock.type = "number"
+			this.inputStock.className = "input-producto-formulario"
 
 			//================
 			this.contenedorDiv = document.createElement("DIV")
@@ -80,7 +80,7 @@ class productoFormulario {
 			this.contenedorDiv.appendChild(this.imagen)
 			this.contenedorDiv.appendChild(this.nombre)
 			this.contenedorDiv.appendChild(this.categoria)
-			this.contenedorDiv.appendChild(this.botonStock)
+			this.contenedorDiv.appendChild(this.inputStock)
 	}		
 			
 
@@ -154,7 +154,6 @@ const render = (contenedor, elemento) => inputStockInicial.appendChild( contened
 		}
 	}
 
-const inputProductoFormulario = document.getElementByClassName('input-producto-formulario')
 
 	function guardarDataStockInicial() {
 
