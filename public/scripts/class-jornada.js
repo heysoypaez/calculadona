@@ -70,6 +70,9 @@ class productoFormulario {
 			this.categoria = document.createElement("P")
 			this.categoria.innerHTML = `Categoria: ${catalogo[index].categoria}`
 
+			this.precio = document.createElement("P"),
+			this.precio.innerHTML =  `$${catalogo[index].precio}`
+
 			this.inputStock = document.createElement("INPUT")
 			this.inputStock.type = "number"
 			this.inputStock.className = "input-producto-formulario"
@@ -81,7 +84,10 @@ class productoFormulario {
 			this.contenedorDiv.appendChild(this.imagen)
 			this.contenedorDiv.appendChild(this.nombre)
 			this.contenedorDiv.appendChild(this.categoria)
+			this.contenedorDiv.appendChild(this.precio)
 			this.contenedorDiv.appendChild(this.inputStock)
+
+			
 	}		
 			
 
@@ -94,7 +100,7 @@ class productoFormulario {
 const formulario = {
 
 	titulo : document.createElement("H2"),
-
+	
 	/*Input de Producto
 	=======================*/
 	productos: [

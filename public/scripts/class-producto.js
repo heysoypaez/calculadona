@@ -56,6 +56,7 @@ class Producto {
 
 		let texto 
 		let categoria = this.categoria
+		let precio = `$${this.precio}`
 		
 		//logica
 		if( this.generoDePalabraMasculino(this.categoria) ) {
