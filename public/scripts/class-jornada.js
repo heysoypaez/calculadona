@@ -122,6 +122,9 @@ formulario.botonEnviar.onclick = guardarInputStockInicial
 /*DECLARACION DE ARRAYS
 ===========================*/
 
+var stockInicial = []
+
+
 /*DECLARACION DE FUNCIONES
 ============================*/
 
@@ -161,45 +164,36 @@ function renderFormulario()
 		}
 	}
 }
+	
+	//Variables
 
+	let key = "input-stock-inicial" //Prefijo de llave para consultar el input de stock inicial
 
-	//Esta funcion es llamada en el boton
+	// Guardando en una variable los datos del input del formulario de manera persistente en la memoria local
 	function guardarInputStockInicial() {
 
-
-	/*	R ¿Que resultado quiero?
-	Quiero guardar en una variable los datos del input del formulario de manera persistente
-	Quiero que esos se guarden cuando presionan el boton
-	*/
-
-	/*Variables
-	============*/
-	let key = "input-stock-inicial"
-	for (let i = 0; i < inputProductoFormulario.length; i++) {
-	
-	//Syntax for SAVING data to localStorage:
-	localStorage.setItem(`${key}{${i}}`, inputProductoFormulario[i].value);
-	
+		for (let i = 0; i < inputProductoFormulario.length; i++) {
+		
+		//Sintaxis para GUARDAR data en localStorage:
+		localStorage.setItem(`${key}{${i}}`, inputProductoFormulario[i].value);
+		}
 	}
 
 
-	/*Render en pantalla
-	=========================*/
-	console.log(x)
-
-
-	//Syntax for READING data from localStorage:
-	var x = localStorage.getItem("inputStockInicial[0]");
-	
-	}
-
-	function consultarStockInicial(index) {
-		let productoConsultado = localStorage.getItem("inputStockInicial[0]"); 
-	}
 
 
 /*ARROW FUNCTIONS
 =========*/
+
+
+const consultar = (index) => {
+	
+	let itemFormulario = localStorage.getItem(`${key}{${index}}`)
+	return console.log(itemFormulario); 	
+
+}
+
+
 
 // funcion para render HTML 
 const render = (contenedor, elemento) => inputStockInicial.appendChild( contenedor[elemento] )
@@ -211,6 +205,12 @@ const render = (contenedor, elemento) => inputStockInicial.appendChild( contened
 transferirCatalogoA(formulario)
 //Render
 renderFormulario()
+
+
+for (let i = 0; i < catalogo.length; i++) {
+	consultar(i)
+}
+
 
 }
 
