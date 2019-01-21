@@ -35,6 +35,7 @@ const titulos = document.getElementsByTagName('h1');
 //Contenido
 const contenidoDeJornada = document.getElementById("contenido-jornada")
 const contenidoDeSidebar = document.getElementById("barra-jornadas")
+const contenidoWhatsapp = document.getElementById("whatsapp-container")
 
 //Formularios
 const inputStockInicial = document.getElementById("input-stock-inicial")
@@ -44,7 +45,6 @@ const inputProductoFormulario = document.getElementsByClassName('input-producto-
 
 //Botones
 const botonInputStockInicial = document.getElementById("boton-input-stock-inicial")
-
 
 
 
@@ -63,16 +63,60 @@ const botonInputStockInicial = document.getElementById("boton-input-stock-inicia
 //Array vector donde contendremos el conjunto de productos de Vladimiro
 let catalogo = [
 
-	new Producto("Dona de Pie", "Dona", "../src/images/donas-pie-limon.jpg"),
-	new Producto("Helado de Chocolate", "Helado", "../src/images/donas-licor-manjar-frutos-rojos.jpg"),
-	new Producto("Helado de Oreo","helado", "../src/images/donas-piramide-apilada.jpg"),
+	new Producto("Dona de Pie", "Dona", "../src/images/donas-pie-limon.jpg", 700, 900, 5),
+	new Producto("Helado de Chocolate", "Helado", "../src/images/donas-licor-manjar-frutos-rojos.jpg",700, 700, 5),
+	new Producto("Helado de Oreo","helado", "../src/images/donas-piramide-apilada.jpg",700, 600, 5),
 	new Producto("Mini Dona","Dona","../src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 1500, 400, 5),
+	new Producto("Dona de Nutella","Dona","../src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 900, 400, 5),
+	new Producto("Dona de Manjar","Dona","../src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 900, 400, 5),
 
 ];
 
 
 /*DECLARACIÓN DE OBJETOS
 ============================================*/		
+
+function declararWhatsapp() {
+
+	const whatsappPedido = document.createElement("A")
+    const prefijo = "https://wa.me/"
+
+    const telefonos = {
+    	marcos: "584126641135",
+    	daniel: "56946599356",
+    	amanda: "56984473359"
+    }
+    
+    const telefono = telefonos.amanda
+    const mensaje = "?text=Tengo%un%20pedido%20de%20donas"
+    //Tengo un pedido de donas
+
+whatsappPedido.innerHTML = "Haz tu pedido",
+whatsappPedido.id = "whatsapp-pedido",
+
+
+
+whatsappPedido.innerHTML = "Haz tu pedido"
+whatsappPedido.id = "whatsapp-pedido"
+whatsappPedido.href = `${prefijo}${telefono}`
+
+return whatsappPedido
+
+}
+
+function whatsappImagen(argument) {
+	const whatsappImagen = new Image
+	whatsappImagen.src = "file:///C:/Users/Daniel/Documents/logos/WhatsApp_Logo_2/WhatsApp_Logo_2.png"
+	whatsappImagen.id = "whatsapp-imagen"
+
+	return whatsappImagen
+}
+
+
+
+contenidoWhatsapp.appendChild( declararWhatsapp() )
+
+contenidoWhatsapp.appendChild( whatsappImagen() )
 
 
 
