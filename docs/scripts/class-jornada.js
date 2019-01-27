@@ -119,9 +119,11 @@ const formulario = {
 
 //Anexando atributos a los elementos del DOM
 formulario.titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
+
 formulario.botonEnviar.innerHTML = "Enviar lo que llevaré hoy"
 formulario.botonEnviar.id = "boton-enviar-input-stock-inicial" 
-formulario.botonEnviar.onclick = guardarInputStockInicial
+formulario.botonEnviar.onclick = guardarInputStockInicial;
+
 
 
 
