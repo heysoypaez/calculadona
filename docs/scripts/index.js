@@ -36,6 +36,10 @@ const titulos = document.getElementsByTagName('h1');
 const contenidoDeJornada = document.getElementById("contenido-jornada")
 const contenidoDeSidebar = document.getElementById("barra-jornadas")
 const contenidoWhatsapp = document.getElementById("whatsapp-container")
+const carruselProductosSidebar = document.getElementById("carrusel-productos-sidebar")
+
+
+
 
 //Formularios
 const inputStockInicial = document.getElementById("input-stock-inicial")
@@ -136,7 +140,7 @@ const ocultar = () => inputStockInicial.classList.toggle("oculto")
 //Ciclo for aplicado a una coleccion de objetos
 //para los producto del catalogo ...
 for (let i = 0; i < catalogo.length ; i++){
-	catalogo[i].mostrar(contenidoDeSidebar)
+	catalogo[i].mostrar(carruselProductosSidebar)
 
 }
 
