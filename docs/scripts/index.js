@@ -129,7 +129,7 @@ contenidoWhatsapp.appendChild( whatsappImagen() )
 ========================================================*/
 
 
-const ocultar = () => inputStockInicial.classList.toggle("oculto")
+const ocultar = (elemento) => elemento.classList.toggle("oculto")
 
 
 

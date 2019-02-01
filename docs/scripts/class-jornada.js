@@ -9,7 +9,7 @@
 		Esta secuencia debe ser parte de un array
 
 
-	2.1 Reciba la cantidad de productos que lleva para el dia de venta
+	2.1 [HECHO] Reciba la cantidad de productos que lleva para el dia de venta
 
 	2.2 Calcule las ventas maximas, las utilidades que implica esa cantidad de productos en la jornada
 
@@ -117,12 +117,16 @@ const formulario = {
 /*DECLARACION DE VARIABLES
 ===========================*/
 
-//Anexando atributos a los elementos del DOM
-formulario.titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
+//Titulo y boton enviar son parte del objeto formulario
+const {titulo, productos, botonEnviar} = formulario;
 
-formulario.botonEnviar.innerHTML = "Enviar lo que llevaré hoy"
-formulario.botonEnviar.id = "boton-enviar-input-stock-inicial" 
-formulario.botonEnviar.onclick = guardarInputStockInicial;
+//Anexando atributos a los elementos del DOM
+titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
+
+botonEnviar.innerHTML = "Enviar lo que llevaré hoy"
+botonEnviar.id = "boton-enviar-input-stock-inicial" 
+botonEnviar.onclick = guardarInputStockInicial;
+botonEnviar.type = "button"
 
 
 
@@ -136,8 +140,6 @@ var stockInicial = []
 /*DECLARACION DE FUNCIONES
 ============================*/
 
-/* FUNCIONES CLASICAS
-===========*/
 function transferirCatalogoA(elemento) {
 
 let productos = elemento.productos;
@@ -166,7 +168,7 @@ function renderFormulario()
 				}
 			}
 		 
-		//Si no son productos muestra directamente el atributo en el formulario
+		//Si no son productos iterables muestra directamente el atributo en el formulario
 		else {
 		render(formulario, atributo)
 		}
@@ -184,7 +186,17 @@ function renderFormulario()
 		
 		//Sintaxis para GUARDAR data en localStorage:
 		localStorage.setItem(`${key}{${i}}`, inputProductoFormulario[i].value);
+		// "input-stock-inicial{0}" "5"
 		}
+
+		//Una vez presionan el boton se oculta la interfaz del formulario del boton inicial
+		ocultar(inputStockInicial)
+
+		for (let i = 0; i < formulario.productos.length; i++) {
+			consultar(i)
+		}
+
+
 	}
 
 
@@ -244,6 +256,13 @@ for (let i = 0; i < catalogo.length; i++) {
 		
 		sumar con un reduce?
 		*/
+	}
+
+	mostrarReporteInicial() {
+			//stock total
+			// stock por producto
+			// ventas maximas
+			// utilidades maximas 
 	}
 
 	calcularStockFinal() {
