@@ -75,21 +75,19 @@ class productoFormulario {
 
 			this.inputStock = document.createElement("INPUT")
 			this.inputStock.type = "number"
+			this.inputStock.value = 0 //por defecto el valor es cero
 			this.inputStock.className = "input-producto-formulario"
 
 			//================
 			this.contenedorDiv = document.createElement("DIV")
 			this.contenedorDiv.className = "productoFormulario"; 
 
-			this.contenedorDiv.appendChild(this.imagen)
-			this.contenedorDiv.appendChild(this.nombre)
-			this.contenedorDiv.appendChild(this.categoria)
-			this.contenedorDiv.appendChild(this.precio)
-			this.contenedorDiv.appendChild(this.inputStock)
-
-			
-	}		
-			
+				this.contenedorDiv.appendChild(this.imagen)
+				this.contenedorDiv.appendChild(this.nombre)
+				this.contenedorDiv.appendChild(this.categoria)
+				this.contenedorDiv.appendChild(this.precio)
+				this.contenedorDiv.appendChild(this.inputStock)
+	}					
 
 }		
 
@@ -189,12 +187,24 @@ function renderFormulario()
 		// "input-stock-inicial{0}" "5"
 		}
 
+		let guardarInputEnArray = () => {
+			//Variable
+			
+
+			for (let i = 0; i < formulario.productos.length; i++) {
+			stockInicial.push( parseInt( consultar(i) ) )
+			}
+
+			return stockInicial
+		}
+
+		/*ESTO NECESITA IR EN SU PROPIA FUNCION*/
 		//Una vez presionan el boton se oculta la interfaz del formulario del boton inicial
 		ocultar(inputStockInicial)
 
-		for (let i = 0; i < formulario.productos.length; i++) {
-			consultar(i)
-		}
+		guardarInputEnArray()
+
+		console.log(stockInicial);
 
 
 	}
@@ -209,7 +219,7 @@ function renderFormulario()
 const consultar = (index) => {
 	
 	let itemFormulario = localStorage.getItem(`${key}{${index}}`)
-	return console.log(itemFormulario); 	
+	return itemFormulario; 	
 
 }
 
@@ -259,6 +269,77 @@ for (let i = 0; i < catalogo.length; i++) {
 	}
 
 	mostrarReporteInicial() {
+
+		/* INTERFAZ GRAFICA
+		===================================================================================
+
+		=======div===============div===============div===============div===============div========
+
+									<h1> En resumen hoy llevas </h1>
+
+										=======div=========
+										<h2>stock total<h2>
+										=======div=========
+
+		<h1>¿Que es esto especificamente <h1>
+			
+		=======div===============div===============div===============div========	
+
+		=======div========	
+		1. Producto 1
+		-Llevas 5
+		-Puedes vender $$$
+		-Puedes ganarle $$
+		=======div========
+
+		=======div========
+		2. Producto 2
+		-Llevas 5
+		-Puedes vender $$$
+		-Puedes ganarle $$
+		=======div========
+
+		=======div========
+		3. Producto 3
+		-Llevas 5
+		-Puedes vender $$$
+		-Puedes ganarle $$
+		=======div========
+
+		=======div========
+		4. Donas
+		-Llevas 5
+		-Puedes vender $$$
+		-Puedes ganarle $$
+		=======div========
+
+		=======div===============div===============div===============div========
+
+					<h1>¿Cuanto dinero puedes ganar si vendes todo?<h1>
+							 <span> es decir X unidades<span>
+
+								========div========
+								cantidad de dinero
+								=======div=======	
+
+					<h1>Y lo importante ¿Cual sera tu ganancia? </h1>
+
+								=======div========
+								monto de la ganancia
+								=======div========
+
+		Dicho todo esto, te dejo y nos vemos en la noche para ver que te quedó	
+
+
+							======BOTON=======
+						    Calcular stock final
+							=======BOTON=======
+
+		=======div===============div===============div===============div===============div========
+
+		=================================================================================
+		*/
+
 			//stock total
 			// stock por producto
 			// ventas maximas
