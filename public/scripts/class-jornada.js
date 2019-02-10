@@ -270,6 +270,56 @@ for (let i = 0; i < catalogo.length; i++) {
 
 	mostrarReporteInicial() {
 
+		function templateReporteInicial(){
+			return(
+				`
+				<div>
+					<div id="resumen-reporte-inicial">
+
+							<h1> En resumen hoy llevas </h1>
+
+							<div id="reporte-stock-inicial-total">
+							${unidadesStockInicialTotal}
+							</div>
+					</div>	
+
+					<div id="reporte-inicial-desglosado-productos">
+
+							<h1>¿Que es esto especificamente <h1>
+							${templateProductoReporte(catalogo)}
+
+					</div>	
+
+					<div id="reporte-inicial-insights">
+
+						<h1>¿Cuanto dinero puedes ganar si vendes todo?<h1>
+						
+						<span> es decir ${unidadesStockInicialTotal} unidades<span>
+
+								<div>
+								${ventasStockInicialTotalVendido}
+								</div>	
+
+						<h1>Y lo importante ¿Cual sera tu ganancia? </h1>
+
+								<div>
+								${gananciasStockInicialTotalVendido}
+								</div>	
+
+						Dicho todo esto, te dejo y nos vemos en la noche para ver que te quedó	
+
+
+							<input type="submit" id="boton-calcular-stock-final">
+						    Calcular stock final
+							</input>
+
+					</div>
+
+				</div>
+				`
+			)
+		}
+
 		/* INTERFAZ GRAFICA
 		===================================================================================
 
