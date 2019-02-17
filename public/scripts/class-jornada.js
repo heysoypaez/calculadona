@@ -42,7 +42,7 @@ class Jornada {
 
 		this.fecha = new Date; //Arroja la fecha de hoy
 		this.stockInicial = this.obtenerStockInicial(); //Cantidad de productos que lleva esta jornada
-		this.stockFinal = this.calcularStockFinal();		
+		this.stockFinal = this.obtenerStockFinal();		
 	}
 
 	/*METODOS DE OBTENCION DE DATOS
@@ -141,7 +141,7 @@ class Jornada {
 					let {productos} = elemento;
 
 					/*Ciclo para pasar todos los objetos del catalogo de productos a la coleccion de productos del objeto for*/
-					for (let i = 0; i < catalogo.length; i++ ) {
+					for (let i = 0; i < catalogo.length - 4; i++ ) {
 
 						productos.push( new productoFormulario(i) )
 					}
@@ -159,7 +159,7 @@ class Jornada {
 							for (let producto of formulario.productos ) {
 						
 									//Me lo vas a renderear en pantalla
-									inputStockInicial.appendChild(producto.contenedorDiv)
+									$inputStockInicial.appendChild(producto.contenedorDiv)
 
 								}
 							}
@@ -191,14 +191,12 @@ class Jornada {
 							}
 
 
-							this.stockInicial = stockInicial
-							debugger
 							return stockInicial
 						}
 
 						/*ESTO NECESITA IR EN SU PROPIA FUNCION*/
 						//Una vez presionan el boton se oculta la interfaz del formulario del boton inicial
-						ocultar(inputStockInicial)
+						ocultar($inputStockInicial)
 
 						guardarInputEnArray()
 
@@ -208,9 +206,8 @@ class Jornada {
 				function botonStockInicialClicado() {
 
 					alert("Viva Chavez");
-					debugger
 					guardarInputStockInicial();
-					this.mostrarReporteInicial();
+					//this.mostrarReporteInicial();
 				}
 
 
@@ -225,7 +222,7 @@ class Jornada {
 				// funcion para render HTML 
 				const render = (contenedor, elemento) => {
 
-					return inputStockInicial.appendChild( contenedor[elemento] ) 
+					return $inputStockInicial.appendChild( contenedor[elemento] ) 
 				}
 
 
@@ -244,7 +241,13 @@ class Jornada {
 				return stockInicial	
 		}
 
-	/*METODOS DE CALCULO DE STOCK
+		obtenerStockFinal() {
+					//calcular stock final del dia en funcion de la cantidad de productos que le quedo
+
+					//stockInicial - stockVendido
+		}
+
+	/*METODOS DE RENDER
 	=========================================*/
 
 		mostrarReporteInicial() {
@@ -254,6 +257,8 @@ class Jornada {
 
 					//En esta variable guardo la suma total de productos que se llevaron 
 					//const unidadesStockInicialTotal = stockInicial.reduce(reducer,valorInicial)
+
+					const $reporteInicial = createHTMLTemplate( templateReporteInicial() )
 
 
 				/*DECLARACIÓN DE FUNCIONES
@@ -286,8 +291,7 @@ class Jornada {
 
 					
 					console.log(unidadesStockInicialTotal)
-					debugger
-
+					
 					//Creando la plantilla del string inicial que mostraremos en pantalla
 					function templateReporteInicial(){
 						return(
@@ -355,20 +359,15 @@ class Jornada {
 					const render = ($nodeWhereRender, $elementRendered) => {
 
 						return $nodeWhereRender.append($elementRendered)
-
 					} 
 
-
-				/*DECLARACIÓN DE ARRAYS
-				===========================*/
 
 				/*EJECUCION DE FUNCIONES
 				===========================*/
 
-					
-					
+					render($contenidoDeJornada, $reporteInicial )
 
-
+					
 				/* INTERFAZ GRAFICA
 				===================================================================================
 
@@ -444,9 +443,5 @@ class Jornada {
 					// utilidades maximas 
 		}
 
-		calcularStockFinal() {
-					//calcular stock final del dia en funcion de la cantidad de productos que le quedo
-
-					//stockInicial - stockVendido
-		}
+		
 }

@@ -33,22 +33,20 @@ const texto = document.createTextNode("Hola, soy Chávez")
 const titulos = document.getElementsByTagName('h1');
 
 //Contenido
-const contenidoDeJornada = document.getElementById("contenido-jornada")
-const contenidoDeSidebar = document.getElementById("barra-jornadas")
-const contenidoWhatsapp = document.getElementById("whatsapp-container")
-const carruselProductosSidebar = document.getElementById("carrusel-productos-sidebar")
-
-
+const $contenidoDeJornada = document.getElementById("contenido-jornada")
+const $contenidoDeSidebar = document.getElementById("barra-jornadas")
+const $contenidoWhatsapp = document.getElementById("whatsapp-container")
+const $carruselProductosSidebar = document.getElementById("carrusel-productos-sidebar")
 
 
 //Formularios
-const inputStockInicial = document.getElementById("input-stock-inicial")
-const inputProductoFormulario = document.getElementsByClassName('input-producto-formulario')
+const $inputStockInicial = document.getElementById("input-stock-inicial")
+const $inputProductoFormulario = document.getElementsByClassName('input-producto-formulario')
 
 
 
 //Botones
-const botonInputStockInicial = document.getElementById("boton-input-stock-inicial")
+const $botoninputStockInicial = document.getElementById("boton-input-stock-inicial")
 
 
 
@@ -118,9 +116,9 @@ function whatsappImagen(argument) {
 
 
 
-contenidoWhatsapp.appendChild( declararWhatsapp() )
+$contenidoWhatsapp.appendChild( declararWhatsapp() )
 
-contenidoWhatsapp.appendChild( whatsappImagen() )
+$contenidoWhatsapp.appendChild( whatsappImagen() )
 
 
 
@@ -140,7 +138,7 @@ const ocultar = (elemento) => elemento.classList.toggle("oculto")
 //Ciclo for aplicado a una coleccion de objetos
 //para los producto del catalogo ...
 for (let i = 0; i < catalogo.length ; i++){
-	catalogo[i].mostrar(carruselProductosSidebar)
+	catalogo[i].mostrar($carruselProductosSidebar)
 
 }
 
