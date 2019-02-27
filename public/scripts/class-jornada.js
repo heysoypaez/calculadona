@@ -40,15 +40,28 @@ class Jornada {
 
 		//atributos y metodos inicializados
 
+		this.inicializar()
+
 		this.fecha = new Date; //Arroja la fecha de hoy
 		this.stockInicial = this.obtenerStockInicial(); //Cantidad de productos que lleva esta jornada
 		this.stockFinal = this.obtenerStockFinal();		
+		
 	}
+
+		inicializar() {
+
+			var frasePrueba = "Viva Chavez"
+
+			// this.botonStockInicialClicado = this.botonStockInicialClicado.bind(this)
+
+
+			//ahora el this esta atado al this de la clase prototipo juego
+		}
 
 	/*METODOS DE OBTENCION DE DATOS
 	======================*/
 
-		obtenerStockInicial() {
+		 obtenerStockInicial() {
 
 
 			/*DECLARACION DE CLASES
@@ -107,24 +120,30 @@ class Jornada {
 				}
 
 
-				/*DECLARACION DE VARIABLES
-				===========================*/
+			/*DECLARACION DE VARIABLES
+			===========================*/
 
-					let key = "input-stock-inicial" //Prefijo de llave para consultar el input de stock inicial
+				let key = "input-stock-inicial" //Prefijo de llave para consultar el input de stock inicial
 
 
-					//Titulo y boton enviar son parte del objeto formulario
-					const {titulo, productos, botonEnviar} = formulario;
+				//Titulo y boton enviar son parte del objeto formulario
+				const {titulo, productos, botonEnviar} = formulario;
 
-					//Anexando atributos a los elementos del DOM
-					titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
+				//Anexando atributos a los elementos del DOM
+				titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
 
-					botonEnviar.innerHTML = "Enviar lo que llevaré hoy"
-					botonEnviar.id = "boton-enviar-input-stock-inicial" 
-					
-					botonEnviar.addEventListener("click", botonStockInicialClicado )
+				botonEnviar.innerHTML = "Enviar lo que llevaré hoy"
+				botonEnviar.id = "boton-enviar-input-stock-inicial" 
+				
 
-					botonEnviar.type = "button"
+				botonEnviar.type = "button"
+
+				/*Bindings*/
+
+				botonStockInicialClicado = botonStockInicialClicado.bind(this)
+
+				botonEnviar.addEventListener("click", botonStockInicialClicado )
+
 
 
 			/*DECLARACION DE ARRAYS
@@ -133,7 +152,7 @@ class Jornada {
 				let stockInicial = []
 
 
-			/*DECLARACION DE FUNCIONES
+			/*DECLARACION DE FUNCIONESbo
 			============================*/
 
 				function transferirCatalogoA(elemento) {
@@ -175,10 +194,10 @@ class Jornada {
 				function guardarInputStockInicial() {
 
 						
-						for (let i = 0; i < inputProductoFormulario.length; i++) {
+						for (let i = 0; i < $inputProductoFormulario.length; i++) {
 						
 							//Sintaxis para GUARDAR data en localStorage:
-							localStorage.setItem(`${key}{${i}}`, inputProductoFormulario[i].value);
+							localStorage.setItem(`${key}{${i}}`, $inputProductoFormulario[i].value);
 							// "input-stock-inicial{0}" "5"
 						}
 
@@ -205,9 +224,10 @@ class Jornada {
 
 				function botonStockInicialClicado() {
 
-					alert("Viva Chavez");
 					guardarInputStockInicial();
-					//this.mostrarReporteInicial();
+
+					
+					this.mostrarReporteInicial();
 				}
 
 
@@ -237,6 +257,7 @@ class Jornada {
 					for (let i = 0; i < catalogo.length; i++) {
 						consultar(i)
 					}
+
 
 				return stockInicial	
 		}
@@ -290,7 +311,6 @@ class Jornada {
 					}
 
 					
-					console.log(unidadesStockInicialTotal)
 					
 					//Creando la plantilla del string inicial que mostraremos en pantalla
 					function templateReporteInicial(){
@@ -302,14 +322,14 @@ class Jornada {
 										<h1> En resumen hoy llevas </h1>
 
 										<div id="reporte-stock-inicial-total">
-										${unidadesStockInicialTotal()}
+										{unidadesStockInicialTotal()}
 										</div>
 								</div>	
 
 								<div id="reporte-inicial-desglosado-productos">
 
 										<h1>¿Que es esto especificamente <h1>
-										${templateProductoReporte(catalogo)}
+										{templateProductoReporte(catalogo)}
 
 								</div>	
 
@@ -317,16 +337,16 @@ class Jornada {
 
 									<h1>¿Cuanto dinero puedes ganar si vendes todo?<h1>
 									
-									<span> es decir ${unidadesStockInicialTotal()} unidades<span>
+									<span> es decir {unidadesStockInicialTotal()} unidades<span>
 
 											<div>
-											${ventasStockInicialTotalVendido}
+											{ventasStockInicialTotalVendido}
 											</div>	
 
 									<h1>Y lo importante ¿Cual sera tu ganancia? </h1>
 
 											<div>
-											${gananciasStockInicialTotalVendido}
+											{gananciasStockInicialTotalVendido}
 											</div>	
 
 									Dicho todo esto, te dejo y nos vemos en la noche para ver que te quedó	
