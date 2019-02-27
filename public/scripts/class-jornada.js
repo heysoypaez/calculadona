@@ -58,7 +58,7 @@ class Jornada {
 				/*DECLARACION DE CLASES
 				===========================*/
 
-					class productoFormulario {
+					class ProductoStockInicial  {
 
 						constructor(index) {
 
@@ -77,11 +77,13 @@ class Jornada {
 								this.inputStock = document.createElement("INPUT")
 								this.inputStock.type = "number"
 								this.inputStock.value = 0 //por defecto el valor es cero
-								this.inputStock.className = "input-producto-formulario"
+								this.inputStock.className = "input-productos-stock-inicial"
 
 								//================
 								this.contenedorDiv = document.createElement("DIV")
-								this.contenedorDiv.className = "productoFormulario"; 
+								this.contenedorDiv.className = "producto-stock-inicial"; 
+
+
 
 									this.contenedorDiv.appendChild(this.imagen)
 									this.contenedorDiv.appendChild(this.nombre)
@@ -150,9 +152,9 @@ class Jornada {
 						let {productos} = elemento;
 
 						/*Ciclo para pasar todos los objetos del catalogo de productos a la coleccion de productos del objeto for*/
-						for (let i = 0; i < catalogo.length - 4; i++ ) {
+						for (let i = 0; i < catalogo.length; i++ ) {
 
-							productos.push( new productoFormulario(i) )
+							productos.push( new ProductoStockInicial(i) )
 						}
 					}
 
@@ -184,17 +186,18 @@ class Jornada {
 					function guardarInputStockInicial() {
 
 							
-							for (let i = 0; i < $inputProductoFormulario.length; i++) {
+							for (let i = 0; i < $inputProductosStockInicial.length; i++) {
 							
+
 								//Sintaxis para GUARDAR data en localStorage:
-								localStorage.setItem(`${key}{${i}}`, $inputProductoFormulario[i].value);
+								localStorage.setItem(`${key}{${i}}`, $inputProductosStockInicial[i].value);
 								// "input-stock-inicial{0}" "5"
 							}
 
 							function guardarInputEnArray() {
 								
 
-								for (let i = 0; i < formulario.productos.length; i++) {
+								for (let i = 0; i < $inputProductosStockInicial.length; i++) {
 
 								stockInicial.push( parseInt( consultar(i) ) )
 								}
@@ -212,13 +215,25 @@ class Jornada {
 							console.log(stockInicial);
 					}
 
+					transferirStockInicialACatalogo = transferirStockInicialACatalogo.bind(this)
+
+					function transferirStockInicialACatalogo() {
+					
+					for(let i = 0; i < catalogo.length; i++) {
+							catalogo[i].stock = this.stockInicial[i]
+						}
+					}
+
 					function botonStockInicialClicado() {
 
 						guardarInputStockInicial();
 
 						
 						this.mostrarReporteInicial();
+
+						transferirStockInicialACatalogo()
 					}
+
 
 
 					//ARROW FUNCTIONS
@@ -277,8 +292,55 @@ class Jornada {
 					const $reporteInicial = createHTMLTemplate( templateReporteInicial() )
 
 
+						class ProductoReporteInicial  {
+
+						constructor(index) {
+
+								this.imagen = document.createElement("IMG")
+								this.imagen = catalogo[index].imagen
+
+								this.nombre = document.createElement("P")
+								this.nombre.innerHTML = catalogo[index].nombre
+
+								this.categoria = document.createElement("P")
+								this.categoria.innerHTML = `Categoria: ${catalogo[index].categoria}`
+
+								this.precio = document.createElement("P"),
+								this.precio.innerHTML =  `$${catalogo[index].precio}`
+
+								this.stock = document.createElement("P")
+								this.stock.innerHTML =  `$${catalogo[index].stock}`
+
+								//================
+								this.contenedorDiv = document.createElement("DIV")
+								this.contenedorDiv.className = "producto-reporte-inicial"; 
+
+
+
+									this.contenedorDiv.appendChild(this.imagen)
+									this.contenedorDiv.appendChild(this.nombre)
+									this.contenedorDiv.appendChild(this.categoria)
+									this.contenedorDiv.appendChild(this.precio)
+									this.contenedorDiv.appendChild(this.inputStock)
+						}					
+					}
+
 				/*DECLARACIÓN DE FUNCIONES
 				===========================*/
+
+						
+					// funcion para render HTML 
+					const render = (contenedor, elemento) => {
+
+						return $inputStockInicial.appendChild( contenedor[elemento] ) 
+					}
+
+
+
+
+						templateProductoReporte(catalogo) {
+
+						}
 
 						//Sumando el stock de cada producto en el array stock inicial con un reduce
 

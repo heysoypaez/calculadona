@@ -41,7 +41,7 @@ const $carruselProductosSidebar = document.getElementById("carrusel-productos-si
 
 //Formularios
 const $inputStockInicial = document.getElementById("input-stock-inicial")
-const $inputProductoFormulario = document.getElementsByClassName('input-producto-formulario')
+const $inputProductosStockInicial = document.getElementsByClassName('input-productos-stock-inicial')
 
 
 
