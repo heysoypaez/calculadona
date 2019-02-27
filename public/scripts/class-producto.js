@@ -74,7 +74,6 @@ class Producto {
 		lugar.innerHTML += `<li> ${texto} </li>`
 		//Esta imagen queda justo debajo del texto
 		lugar.appendChild(this.imagen)
-
 	}
 
 }

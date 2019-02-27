@@ -44,18 +44,10 @@ class Jornada {
 
 		this.fecha = new Date; //Arroja la fecha de hoy
 		this.stockInicial = this.obtenerStockInicial(); //Cantidad de productos que lleva esta jornada
-		this.stockFinal = this.obtenerStockFinal();		
-		
+		this.stockFinal = this.obtenerStockFinal();			
 	}
 
 		inicializar() {
-
-			var frasePrueba = "Viva Chavez"
-
-			// this.botonStockInicialClicado = this.botonStockInicialClicado.bind(this)
-
-
-			//ahora el this esta atado al this de la clase prototipo juego
 		}
 
 	/*METODOS DE OBTENCION DE DATOS
@@ -63,203 +55,201 @@ class Jornada {
 
 		 obtenerStockInicial() {
 
+				/*DECLARACION DE CLASES
+				===========================*/
 
-			/*DECLARACION DE CLASES
-			===========================*/
+					class productoFormulario {
 
-				class productoFormulario {
+						constructor(index) {
 
-					constructor(index) {
+								this.imagen = document.createElement("IMG")
+								this.imagen = catalogo[index].imagen
 
-							this.imagen = document.createElement("IMG")
-							this.imagen = catalogo[index].imagen
+								this.nombre = document.createElement("P")
+								this.nombre.innerHTML = catalogo[index].nombre
 
-							this.nombre = document.createElement("P")
-							this.nombre.innerHTML = catalogo[index].nombre
+								this.categoria = document.createElement("P")
+								this.categoria.innerHTML = `Categoria: ${catalogo[index].categoria}`
 
-							this.categoria = document.createElement("P")
-							this.categoria.innerHTML = `Categoria: ${catalogo[index].categoria}`
+								this.precio = document.createElement("P"),
+								this.precio.innerHTML =  `$${catalogo[index].precio}`
 
-							this.precio = document.createElement("P"),
-							this.precio.innerHTML =  `$${catalogo[index].precio}`
+								this.inputStock = document.createElement("INPUT")
+								this.inputStock.type = "number"
+								this.inputStock.value = 0 //por defecto el valor es cero
+								this.inputStock.className = "input-producto-formulario"
 
-							this.inputStock = document.createElement("INPUT")
-							this.inputStock.type = "number"
-							this.inputStock.value = 0 //por defecto el valor es cero
-							this.inputStock.className = "input-producto-formulario"
+								//================
+								this.contenedorDiv = document.createElement("DIV")
+								this.contenedorDiv.className = "productoFormulario"; 
 
-							//================
-							this.contenedorDiv = document.createElement("DIV")
-							this.contenedorDiv.className = "productoFormulario"; 
-
-								this.contenedorDiv.appendChild(this.imagen)
-								this.contenedorDiv.appendChild(this.nombre)
-								this.contenedorDiv.appendChild(this.categoria)
-								this.contenedorDiv.appendChild(this.precio)
-								this.contenedorDiv.appendChild(this.inputStock)
-					}					
-				}		
-
-
-			/*DECLARACION DE OBJETOS
-			===========================*/
-
-				const formulario = {
-
-					titulo : document.createElement("H2"),
-					
-					/*Input de Producto
-					=======================*/
-					productos: [
-
-					/*empujare los productos de los cuales solicitare stock aca*/
-					
-					],
-
-					botonEnviar: document.createElement("button")		
-				}
+									this.contenedorDiv.appendChild(this.imagen)
+									this.contenedorDiv.appendChild(this.nombre)
+									this.contenedorDiv.appendChild(this.categoria)
+									this.contenedorDiv.appendChild(this.precio)
+									this.contenedorDiv.appendChild(this.inputStock)
+						}					
+					}		
 
 
-			/*DECLARACION DE VARIABLES
-			===========================*/
+				/*DECLARACION DE OBJETOS
+				===========================*/
 
-				let key = "input-stock-inicial" //Prefijo de llave para consultar el input de stock inicial
+					const formulario = {
 
-
-				//Titulo y boton enviar son parte del objeto formulario
-				const {titulo, productos, botonEnviar} = formulario;
-
-				//Anexando atributos a los elementos del DOM
-				titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
-
-				botonEnviar.innerHTML = "Enviar lo que llevaré hoy"
-				botonEnviar.id = "boton-enviar-input-stock-inicial" 
-				
-
-				botonEnviar.type = "button"
-
-				/*Bindings*/
-
-				botonStockInicialClicado = botonStockInicialClicado.bind(this)
-
-				botonEnviar.addEventListener("click", botonStockInicialClicado )
-
-
-
-			/*DECLARACION DE ARRAYS
-			===========================*/
-
-				let stockInicial = []
-
-
-			/*DECLARACION DE FUNCIONESbo
-			============================*/
-
-				function transferirCatalogoA(elemento) {
-
-					let {productos} = elemento;
-
-					/*Ciclo para pasar todos los objetos del catalogo de productos a la coleccion de productos del objeto for*/
-					for (let i = 0; i < catalogo.length - 4; i++ ) {
-
-						productos.push( new productoFormulario(i) )
-					}
-				}
-
-				//Ciclo para ejecucion de render
-				function renderFormulario() {
-
-					for (let atributo in formulario) {
-
-						//Si el valor del atributo del formulario es productos....
-						if (atributo === "productos" ) {
-
-							//Por cada producto en la coleccion de productos (ARRAY)
-							for (let producto of formulario.productos ) {
+						titulo : document.createElement("H2"),
 						
-									//Me lo vas a renderear en pantalla
-									$inputStockInicial.appendChild(producto.contenedorDiv)
+						/*Input de Producto
+						=======================*/
+						productos: [
 
-								}
-							}
-						 
-						//Si no son productos iterables muestra directamente el atributo en el formulario
-						else {
-						render(formulario, atributo)
+						/*empujare los productos de los cuales solicitare stock aca*/
+						
+						],
+
+						botonEnviar: document.createElement("button")		
+					}
+
+
+				/*DECLARACION DE VARIABLES
+				===========================*/
+
+					let key = "input-stock-inicial" //Prefijo de llave para consultar el input de stock inicial
+
+
+					//Titulo y boton enviar son parte del objeto formulario
+					const {titulo, productos, botonEnviar} = formulario;
+
+					//Anexando atributos a los elementos del DOM
+					titulo.innerHTML = "¿Qué llevarás (Y venderás) hoy?"
+
+					botonEnviar.innerHTML = "Enviar lo que llevaré hoy"
+					botonEnviar.id = "boton-enviar-input-stock-inicial" 
+					
+
+					botonEnviar.type = "button"
+
+					/*Bindings*/
+
+					botonStockInicialClicado = botonStockInicialClicado.bind(this)
+
+					botonEnviar.addEventListener("click", botonStockInicialClicado )
+
+
+				/*DECLARACION DE ARRAYS
+				===========================*/
+
+					let stockInicial = []
+
+
+				/*DECLARACION DE FUNCIONES
+				============================*/
+
+					function transferirCatalogoA(elemento) {
+
+						let {productos} = elemento;
+
+						/*Ciclo para pasar todos los objetos del catalogo de productos a la coleccion de productos del objeto for*/
+						for (let i = 0; i < catalogo.length - 4; i++ ) {
+
+							productos.push( new productoFormulario(i) )
 						}
 					}
-				}
-						
-				// Guardando en una variable los datos del input del formulario de manera persistente en la memoria local
-				function guardarInputStockInicial() {
 
-						
-						for (let i = 0; i < $inputProductoFormulario.length; i++) {
-						
-							//Sintaxis para GUARDAR data en localStorage:
-							localStorage.setItem(`${key}{${i}}`, $inputProductoFormulario[i].value);
-							// "input-stock-inicial{0}" "5"
-						}
+					//Ciclo para ejecucion de render
+					function renderFormulario() {
 
-						function guardarInputEnArray() {
+						for (let atributo in formulario) {
+
+							//Si el valor del atributo del formulario es productos....
+							if (atributo === "productos" ) {
+
+								//Por cada producto en la coleccion de productos (ARRAY)
+								for (let producto of formulario.productos ) {
 							
+										//Me lo vas a renderear en pantalla
+										$inputStockInicial.appendChild(producto.contenedorDiv)
 
-							for (let i = 0; i < formulario.productos.length; i++) {
+									}
+								}
+							 
+							//Si no son productos iterables muestra directamente el atributo en el formulario
+							else {
+							render(formulario, atributo)
+							}
+						}
+					}
+							
+					// Guardando en una variable los datos del input del formulario de manera persistente en la memoria local
+					function guardarInputStockInicial() {
 
-							stockInicial.push( parseInt( consultar(i) ) )
+							
+							for (let i = 0; i < $inputProductoFormulario.length; i++) {
+							
+								//Sintaxis para GUARDAR data en localStorage:
+								localStorage.setItem(`${key}{${i}}`, $inputProductoFormulario[i].value);
+								// "input-stock-inicial{0}" "5"
 							}
 
+							function guardarInputEnArray() {
+								
 
-							return stockInicial
-						}
+								for (let i = 0; i < formulario.productos.length; i++) {
 
-						/*ESTO NECESITA IR EN SU PROPIA FUNCION*/
-						//Una vez presionan el boton se oculta la interfaz del formulario del boton inicial
-						ocultar($inputStockInicial)
-
-						guardarInputEnArray()
-
-						console.log(stockInicial);
-				}
-
-				function botonStockInicialClicado() {
-
-					guardarInputStockInicial();
-
-					
-					this.mostrarReporteInicial();
-				}
+								stockInicial.push( parseInt( consultar(i) ) )
+								}
 
 
-				//ARROW FUNCTIONS
-			
-				const consultar = (index) => {
-					
-					let itemFormulario = localStorage.getItem(`${key}{${index}}`)
-					return itemFormulario; 	
-				}
+								return stockInicial
+							}
 
-				// funcion para render HTML 
-				const render = (contenedor, elemento) => {
+							/*ESTO NECESITA IR EN SU PROPIA FUNCION*/
+							//Una vez presionan el boton se oculta la interfaz del formulario del boton inicial
+							ocultar($inputStockInicial)
 
-					return $inputStockInicial.appendChild( contenedor[elemento] ) 
-				}
+							guardarInputEnArray()
 
+							console.log(stockInicial);
+					}
 
-			/*EJECUCION DE FUNCIONES
-			=========================*/
+					function botonStockInicialClicado() {
 
-				transferirCatalogoA(formulario) 
-					
-				//Render
-				renderFormulario()
+						guardarInputStockInicial();
 
-					for (let i = 0; i < catalogo.length; i++) {
-						consultar(i)
+						
+						this.mostrarReporteInicial();
 					}
 
 
-				return stockInicial	
+					//ARROW FUNCTIONS
+				
+					const consultar = (index) => {
+						
+						let itemFormulario = localStorage.getItem(`${key}{${index}}`)
+						return itemFormulario; 	
+					}
+
+					// funcion para render HTML 
+					const render = (contenedor, elemento) => {
+
+						return $inputStockInicial.appendChild( contenedor[elemento] ) 
+					}
+
+
+				/*EJECUCION DE FUNCIONES
+				=========================*/
+
+					transferirCatalogoA(formulario) 
+						
+					//Render
+					renderFormulario()
+
+						for (let i = 0; i < catalogo.length; i++) {
+							consultar(i)
+						}
+
+
+					return stockInicial	
 		}
 
 		obtenerStockFinal() {
@@ -276,8 +266,13 @@ class Jornada {
 				/*DECLARACIÓN DE VARIABLES
 				===========================*/
 
-					//En esta variable guardo la suma total de productos que se llevaron 
-					//const unidadesStockInicialTotal = stockInicial.reduce(reducer,valorInicial)
+					templateReporteInicial = templateReporteInicial.bind(this)
+					const {stockInicial} = this;
+
+					// ! Esto lo puedo colocar en una funcion pero tengo problemas tecnicos 
+					let valorInicial = 0
+					const  reducer = (acum, stockInicial) => acum + stockInicial
+					const unidadesStockInicialTotal = stockInicial.reduce(reducer,valorInicial)
 
 					const $reporteInicial = createHTMLTemplate( templateReporteInicial() )
 
@@ -285,8 +280,7 @@ class Jornada {
 				/*DECLARACIÓN DE FUNCIONES
 				===========================*/
 
-					function calcularUnidadesStockInicialTotal() {
-
+						//Sumando el stock de cada producto en el array stock inicial con un reduce
 
 						//calcular stock inicial del dia en funcion de la cantidad de productos que quiere llevar
 						//Desglosar en stock total y stock especifico
@@ -300,35 +294,25 @@ class Jornada {
 						- pie 3
 						- limon 4
 						
-						sumar con un reduce?
-						*/	
-
-						let valorInicial = 0;
-
-						function reducer(acumulador) {
-							stockInicial + acumulador
-						}
-					}
-
-					
+						*/
 					
 					//Creando la plantilla del string inicial que mostraremos en pantalla
 					function templateReporteInicial(){
 						return(
 							`
-							<div>
+							<div id="reporte-inicial">
 								<div id="resumen-reporte-inicial">
 
 										<h1> En resumen hoy llevas </h1>
 
 										<div id="reporte-stock-inicial-total">
-										{unidadesStockInicialTotal()}
+										${unidadesStockInicialTotal} productos
 										</div>
 								</div>	
 
 								<div id="reporte-inicial-desglosado-productos">
 
-										<h1>¿Que es esto especificamente <h1>
+										<h1>¿Que es esto especificamente? <h1>
 										{templateProductoReporte(catalogo)}
 
 								</div>	
@@ -340,21 +324,20 @@ class Jornada {
 									<span> es decir {unidadesStockInicialTotal()} unidades<span>
 
 											<div>
-											{ventasStockInicialTotalVendido}
+											{ventasStockInicialTotalVendido()}
 											</div>	
 
 									<h1>Y lo importante ¿Cual sera tu ganancia? </h1>
 
 											<div>
-											{gananciasStockInicialTotalVendido}
+											{gananciasStockInicialTotalVendido()}
 											</div>	
 
-									Dicho todo esto, te dejo y nos vemos en la noche para ver que te quedó	
+									<p>Dicho todo esto, te dejo y nos vemos en la noche para ver que te quedó</p>	
 
 
-										<input type="submit" id="boton-calcular-stock-final">
-									    Calcular stock final
-										</input>
+										<input type="submit" id="boton-calcular-stock-final" value="Calcular stock final" />
+									 
 
 								</div>
 
