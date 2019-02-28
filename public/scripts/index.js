@@ -33,22 +33,20 @@ const texto = document.createTextNode("Hola, soy Chávez")
 const titulos = document.getElementsByTagName('h1');
 
 //Contenido
-const contenidoDeJornada = document.getElementById("contenido-jornada")
-const contenidoDeSidebar = document.getElementById("barra-jornadas")
-const contenidoWhatsapp = document.getElementById("whatsapp-container")
-const carruselProductosSidebar = document.getElementById("carrusel-productos-sidebar")
-
-
+const $contenidoDeJornada = document.getElementById("contenido-jornada")
+const $contenidoDeSidebar = document.getElementById("barra-jornadas")
+const $contenidoWhatsapp = document.getElementById("whatsapp-container")
+const $carruselProductosSidebar = document.getElementById("carrusel-productos-sidebar")
 
 
 //Formularios
-const inputStockInicial = document.getElementById("input-stock-inicial")
-const inputProductoFormulario = document.getElementsByClassName('input-producto-formulario')
+const $inputStockInicial = document.getElementById("input-stock-inicial")
+const $inputProductosStockInicial = document.getElementsByClassName('input-productos-stock-inicial')
 
 
 
 //Botones
-const botonInputStockInicial = document.getElementById("boton-input-stock-inicial")
+const $botoninputStockInicial = document.getElementById("boton-input-stock-inicial")
 
 
 
@@ -67,12 +65,12 @@ const botonInputStockInicial = document.getElementById("boton-input-stock-inicia
 //Array vector donde contendremos el conjunto de productos de Vladimiro
 let catalogo = [
 
-	new Producto("Dona de Pie", "Dona", "../src/images/donas-pie-limon.jpg", 700, 900, 5),
-	new Producto("Helado de Chocolate", "Helado", "../src/images/donas-licor-manjar-frutos-rojos.jpg",700, 700, 5),
-	new Producto("Helado de Oreo","helado", "../src/images/donas-piramide-apilada.jpg",700, 600, 5),
-	new Producto("Mini Dona","Dona","../src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 1500, 400, 5),
-	new Producto("Dona de Nutella","Dona","../src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 900, 400, 5),
-	new Producto("Dona de Manjar","Dona","../src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 900, 400, 5),
+	new Producto("Dona de Pie", "Dona", "src/images/donas-pie-limon.jpg", 700, 900, 5),
+	new Producto("Helado de Chocolate", "Helado", "src/images/donas-licor-manjar-frutos-rojos.jpg",700, 700, 5),
+	new Producto("Helado de Oreo","helado", "src/images/donas-piramide-apilada.jpg",700, 600, 5),
+	new Producto("Mini Dona","Dona","src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 1500, 400, 5),
+	new Producto("Dona de Nutella","Dona","src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 900, 400, 5),
+	new Producto("Dona de Manjar","Dona","src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 900, 400, 5),
 
 ];
 
@@ -118,9 +116,9 @@ function whatsappImagen(argument) {
 
 
 
-contenidoWhatsapp.appendChild( declararWhatsapp() )
+$contenidoWhatsapp.appendChild( declararWhatsapp() )
 
-contenidoWhatsapp.appendChild( whatsappImagen() )
+$contenidoWhatsapp.appendChild( whatsappImagen() )
 
 
 
@@ -140,7 +138,7 @@ const ocultar = (elemento) => elemento.classList.toggle("oculto")
 //Ciclo for aplicado a una coleccion de objetos
 //para los producto del catalogo ...
 for (let i = 0; i < catalogo.length ; i++){
-	catalogo[i].mostrar(carruselProductosSidebar)
+	catalogo[i].mostrar($carruselProductosSidebar)
 
 }
 
