@@ -47,13 +47,14 @@ class Jornada {
 		this.stockFinal = this.obtenerStockFinal();			
 	}
 
-		inicializar() {
-		}
+	inicializar() {
+
+	}
 
 	/*METODOS DE OBTENCION DE DATOS
 	======================*/
 
-		 obtenerStockInicial() {
+		obtenerStockInicial() {
 
 				/*DECLARACION DE CLASES
 				===========================*/
@@ -227,11 +228,9 @@ class Jornada {
 					function botonStockInicialClicado() {
 
 						guardarInputStockInicial();
-
-						
+						transferirStockInicialACatalogo();
 						this.mostrarReporteInicial();
-
-						transferirStockInicialACatalogo()
+						
 					}
 
 
@@ -292,54 +291,53 @@ class Jornada {
 					const $reporteInicial = createHTMLTemplate( templateReporteInicial() )
 
 
-						class ProductoReporteInicial  {
+						
 
-						constructor(index) {
-
-								this.imagen = document.createElement("IMG")
-								this.imagen = catalogo[index].imagen
-
-								this.nombre = document.createElement("P")
-								this.nombre.innerHTML = catalogo[index].nombre
-
-								this.categoria = document.createElement("P")
-								this.categoria.innerHTML = `Categoria: ${catalogo[index].categoria}`
-
-								this.precio = document.createElement("P"),
-								this.precio.innerHTML =  `$${catalogo[index].precio}`
-
-								this.stock = document.createElement("P")
-								this.stock.innerHTML =  `$${catalogo[index].stock}`
-
-								//================
-								this.contenedorDiv = document.createElement("DIV")
-								this.contenedorDiv.className = "producto-reporte-inicial"; 
-
-
-
-									this.contenedorDiv.appendChild(this.imagen)
-									this.contenedorDiv.appendChild(this.nombre)
-									this.contenedorDiv.appendChild(this.categoria)
-									this.contenedorDiv.appendChild(this.precio)
-									this.contenedorDiv.appendChild(this.inputStock)
-						}					
-					}
 
 				/*DECLARACIÓN DE FUNCIONES
 				===========================*/
 
 						
-					// funcion para render HTML 
-					const render = (contenedor, elemento) => {
-
-						return $inputStockInicial.appendChild( contenedor[elemento] ) 
-					}
 
 
 
+					function templateProductoReporte(index) {
 
-						templateProductoReporte(catalogo) {
+							class ProductoReporteInicial  {
 
+								constructor(index) {
+
+										this.imagen = document.createElement("IMG")
+										this.imagen = catalogo[index].imagen
+
+										this.nombre = document.createElement("P")
+										this.nombre.innerHTML = catalogo[index].nombre
+
+										this.categoria = document.createElement("P")
+										this.categoria.innerHTML = `Categoria: ${catalogo[index].categoria}`
+
+										this.precio = document.createElement("P"),
+										this.precio.innerHTML =  `$${catalogo[index].precio}`
+
+										this.stock = document.createElement("P")
+										this.stock.innerHTML =  `Disponibles: ${catalogo[index].stock}`
+
+										//================
+										this.contenedorDiv = document.createElement("DIV")
+										this.contenedorDiv.className = "producto-reporte-inicial"; 
+
+
+											this.contenedorDiv.appendChild(this.imagen)
+											this.contenedorDiv.appendChild(this.nombre)
+											this.contenedorDiv.appendChild(this.categoria)
+											this.contenedorDiv.appendChild(this.precio)
+											this.contenedorDiv.appendChild(this.stock)
+								}					
+							}
+
+							const productoReporte = new ProductoReporteInicial(index)
+
+							return productoReporte.contenedorDiv
 						}
 
 						//Sumando el stock de cada producto en el array stock inicial con un reduce
@@ -375,7 +373,8 @@ class Jornada {
 								<div id="reporte-inicial-desglosado-productos">
 
 										<h1>¿Que es esto especificamente? <h1>
-										{templateProductoReporte(catalogo)}
+											<div id="contenido-reporte-inicial-desglosado-productos">
+											</div>
 
 								</div>	
 
@@ -431,6 +430,15 @@ class Jornada {
 				===========================*/
 
 					render($contenidoDeJornada, $reporteInicial )
+
+					//Reporte inicial
+					const $contenidoReporteInicialDesglosado = document.getElementById("contenido-reporte-inicial-desglosado-productos")
+
+					render($contenidoReporteInicialDesglosado, templateProductoReporte(0) )
+					render($contenidoReporteInicialDesglosado, templateProductoReporte(1) )
+					render($contenidoReporteInicialDesglosado, templateProductoReporte(2) )
+
+
 
 					
 				/* INTERFAZ GRAFICA
@@ -506,7 +514,5 @@ class Jornada {
 					// stock por producto
 					// ventas maximas
 					// utilidades maximas 
-		}
-
-		
+		}		
 }

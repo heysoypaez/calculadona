@@ -39,6 +39,9 @@ const $contenidoWhatsapp = document.getElementById("whatsapp-container")
 const $carruselProductosSidebar = document.getElementById("carrusel-productos-sidebar")
 
 
+	//Reporte inicial
+	const $contenidoReporteInicialDesglosado = document.getElementById("contenido-reporte-inicial-desglosado-productos")
+
 //Formularios
 const $inputStockInicial = document.getElementById("input-stock-inicial")
 const $inputProductosStockInicial = document.getElementsByClassName('input-productos-stock-inicial')

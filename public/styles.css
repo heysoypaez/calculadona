@@ -36,7 +36,8 @@ URL cÃ³digo: github.com/heysoypaez
 		--principal
 		---boton-new-day
 		---- form #input Formulario input-stock-inicial
-		---- div #reporte-inicial Contenedor reporte iniciaal
+		---- div #reporte-inicial Contenedor reporte inicial
+		---- div .producto-reporte-inicial 
 
 		---contenido-jornada
 
@@ -298,6 +299,29 @@ div#reporte-inicial {
 	padding-bottom: 4vh;
 	border-radius: 20px;
 }
+
+/* Contenedor Producto reporte inicial 
+=======================================*/
+
+.producto-reporte-inicial {
+
+	background-color: red;
+	float:left;
+	width: 30%;
+	margin: 5px 5px 5px 5px;
+	display: inline-block;
+
+	height: 240px;
+	vertical-align: middle;
+
+	font-size: 12px;
+	color: white;
+	padding: 5px 5px 5px 5px;
+
+	border-radius: 50px;
+
+}
+
 
 
 
