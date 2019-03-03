@@ -285,20 +285,20 @@ class Jornada {
 
 					// ! Esto lo puedo colocar en una funcion pero tengo problemas tecnicos 
 					let valorInicial = 0
-					const  reducer = (acum, stockInicial) => acum + stockInicial
-					const unidadesStockInicialTotal = stockInicial.reduce(reducer,valorInicial)
 
-					const $reporteInicial = createHTMLTemplate( templateReporteInicial() )
+					const  reducerStockInicialTotal = (acum, stockInicial) => acum + stockInicial
+					
+					const unidadesStockInicialTotal = stockInicial.reduce(reducerStockInicialTotal,valorInicial)
+					
+
+					let gananciasInicialTotal = [];
+					let ventasInicialTotal = [];
 
 
-						
 
 
 				/*DECLARACIÓN DE FUNCIONES
 				===========================*/
-
-						
-
 
 
 					function templateProductoReporte(index) {
@@ -313,14 +313,14 @@ class Jornada {
 										this.nombre = document.createElement("P")
 										this.nombre.innerHTML = catalogo[index].nombre
 
-										this.categoria = document.createElement("P")
-										this.categoria.innerHTML = `Categoria: ${catalogo[index].categoria}`
+										this.ventas = document.createElement("P"),
+										this.ventas.innerHTML =  `Puedes vender $${this.calcularVentas(index)} `
 
-										this.precio = document.createElement("P"),
-										this.precio.innerHTML =  `$${catalogo[index].precio}`
+										this.ganancias = document.createElement("P")
+										this.ganancias.innerHTML = `Puedes ganar $${this.calcularGanancias(index)} chamo`
 
 										this.stock = document.createElement("P")
-										this.stock.innerHTML =  `Disponibles: ${catalogo[index].stock}`
+										this.stock.innerHTML =  `Llevas ${catalogo[index].stock} `
 
 										//================
 										this.contenedorDiv = document.createElement("DIV")
@@ -329,32 +329,34 @@ class Jornada {
 
 											this.contenedorDiv.appendChild(this.imagen)
 											this.contenedorDiv.appendChild(this.nombre)
-											this.contenedorDiv.appendChild(this.categoria)
-											this.contenedorDiv.appendChild(this.precio)
 											this.contenedorDiv.appendChild(this.stock)
-								}					
+											this.contenedorDiv.appendChild(this.ventas)
+											this.contenedorDiv.appendChild(this.ganancias)
+											
+								}
+	
+
+								calcularVentas(index) {
+
+									let ventas = catalogo[index].precio * catalogo[index].stock;
+									ventasInicialTotal.push(ventas)
+
+									return 	ventas
+								} 	
+
+								calcularGanancias(index) {	
+							
+									let ganancias = catalogo[index].ganancia * catalogo[index].stock;
+									gananciasInicialTotal.push(ganancias)
+
+									return ganancias;
+								}			
 							}
 
-							const productoReporte = new ProductoReporteInicial(index)
+							const productoReporte = new ProductoReporteInicial(index);
 
-							return productoReporte.contenedorDiv
-						}
-
-						//Sumando el stock de cada producto en el array stock inicial con un reduce
-
-						//calcular stock inicial del dia en funcion de la cantidad de productos que quiere llevar
-						//Desglosar en stock total y stock especifico
-						
-						/*
-						return Array(productosLlevados)
-						stock = longitud array + 1, porque los array empiezan en 0
-
-						quiero llevar:
-						- nutella 5
-						- pie 3
-						- limon 4
-						
-						*/
+							return productoReporte.contenedorDiv;
+					}
 					
 					//Creando la plantilla del string inicial que mostraremos en pantalla
 					function templateReporteInicial(){
@@ -381,17 +383,16 @@ class Jornada {
 								<div id="reporte-inicial-insights">
 
 									<h1>¿Cuanto dinero puedes ganar si vendes todo?<h1>
-									
-									<span> es decir {unidadesStockInicialTotal()} unidades<span>
+									<div> es decir ${unidadesStockInicialTotal} unidades</div>
 
-											<div>
-											{ventasStockInicialTotalVendido()}
+											<div id="monto-ventas-inicial-total">
+											
 											</div>	
 
 									<h1>Y lo importante ¿Cual sera tu ganancia? </h1>
 
-											<div>
-											{gananciasStockInicialTotalVendido()}
+											<div id="monto-ganancias-inicial-total">
+											
 											</div>	
 
 									<p>Dicho todo esto, te dejo y nos vemos en la noche para ver que te quedó</p>	
@@ -424,95 +425,64 @@ class Jornada {
 
 						return $nodeWhereRender.append($elementRendered)
 					} 
-
+	
 
 				/*EJECUCION DE FUNCIONES
 				===========================*/
 
+					const $reporteInicial = createHTMLTemplate( templateReporteInicial() )
 					render($contenidoDeJornada, $reporteInicial )
-
-					//Reporte inicial
 					const $contenidoReporteInicialDesglosado = document.getElementById("contenido-reporte-inicial-desglosado-productos")
 
-					render($contenidoReporteInicialDesglosado, templateProductoReporte(0) )
-					render($contenidoReporteInicialDesglosado, templateProductoReporte(1) )
-					render($contenidoReporteInicialDesglosado, templateProductoReporte(2) )
 
-
-
-					
-				/* INTERFAZ GRAFICA
-				===================================================================================
-
-					=======div===============div===============div===============div===============div========
-
-												<h1> En resumen hoy llevas </h1>
-
-													=======div=========
-													<h2>stock total<h2>
-													=======div=========
-
-					<h1>¿Que es esto especificamente <h1>
+					const $montoVentasInicialTotal = document.getElementById("monto-ventas-inicial-total")
+					const $montoGananciasInicialTotal = document.getElementById("monto-ganancias-inicial-total") 
+				
+					for (let i = 0; i < catalogo.length; i++) {
 						
-					=======div===============div===============div===============div========	
-
-					=======div========	
-					1. Producto 1
-					-Llevas 5
-					-Puedes vender $$$
-					-Puedes ganarle $$
-					=======div========
-
-					=======div========
-					2. Producto 2
-					-Llevas 5
-					-Puedes vender $$$
-					-Puedes ganarle $$
-					=======div========
-
-					=======div========
-					3. Producto 3
-					-Llevas 5
-					-Puedes vender $$$
-					-Puedes ganarle $$
-					=======div========
-
-					=======div========
-					4. Donas
-					-Llevas 5
-					-Puedes vender $$$
-					-Puedes ganarle $$
-					=======div========
-
-					=======div===============div===============div===============div========
-
-								<h1>¿Cuanto dinero puedes ganar si vendes todo?<h1>
-										 <span> es decir X unidades<span>
-
-											========div========
-											cantidad de dinero
-											=======div=======	
-
-								<h1>Y lo importante ¿Cual sera tu ganancia? </h1>
-
-											=======div========
-											monto de la ganancia
-											=======div========
-
-					Dicho todo esto, te dejo y nos vemos en la noche para ver que te quedó	
+						render($contenidoReporteInicialDesglosado, templateProductoReporte(i) )
+					}
 
 
-										======BOTON=======
-									    Calcular stock final
-										=======BOTON=======
+					const  reducerVentasInicialTotal = (acum, ventasInicialTotal) => acum + ventasInicialTotal
+					const  reducerGananciasInicialTotal = (acum, gananciasInicialTotal) => acum + gananciasInicialTotal
 
-					=======div===============div===============div===============div===============div========
-				=================================================================================
-				*/
+					const montoVentasInicialTotal = ventasInicialTotal.reduce(reducerVentasInicialTotal,valorInicial)
+					const $dataMontoVentasInicialTotal = document.createTextNode(`$${montoVentasInicialTotal}`)
 
-					//stock total
-					// stock por producto
-					// ventas maximas
-					// utilidades maximas 
+					const montoGananciasInicialTotal = gananciasInicialTotal.reduce(reducerGananciasInicialTotal,valorInicial)
+					const $dataMontoGananciasInicialTotal = document.createTextNode(`$${montoGananciasInicialTotal}`)
+
+					render($montoVentasInicialTotal,$dataMontoVentasInicialTotal )
+					render($montoGananciasInicialTotal,$dataMontoGananciasInicialTotal)
 		}		
 }
+
+
+
+/*
+Reflexiones, ideas, observaciones mientrras programo:
+
+
+Closure es la funcion padre dentro de la que esta otra funcion
+
+Este codigo siento que tiene potencial de abstraerse, sintetizarse más
+
+Y a la vez hacerse más escalable a traves de funciones y objetos
+
+Aun no tengo claro como, aùn, pero viene
+
+Lista de comos
+-
+-
+-
+
+Considero que deberia mostrar en pantalla solo los productos donde stock es mayor a 0, eso lo puedo hacer filtrando la colección
+
+¿Qué resultados quiero de la sesión de hoy?
+ - [] Quiero mostrar en pantalla la ganancia que representa cada producto para Vladimiro en funcion del stock que llevo
+ - []
+ - []
+
+
+*/

@@ -39,8 +39,6 @@ const $contenidoWhatsapp = document.getElementById("whatsapp-container")
 const $carruselProductosSidebar = document.getElementById("carrusel-productos-sidebar")
 
 
-	//Reporte inicial
-	const $contenidoReporteInicialDesglosado = document.getElementById("contenido-reporte-inicial-desglosado-productos")
 
 //Formularios
 const $inputStockInicial = document.getElementById("input-stock-inicial")
@@ -68,14 +66,15 @@ const $botoninputStockInicial = document.getElementById("boton-input-stock-inici
 //Array vector donde contendremos el conjunto de productos de Vladimiro
 let catalogo = [
 
-	new Producto("Dona de Pie", "Dona", "src/images/donas-pie-limon.jpg", 700, 900, 5),
-	new Producto("Helado de Chocolate", "Helado", "src/images/donas-licor-manjar-frutos-rojos.jpg",700, 700, 5),
-	new Producto("Helado de Oreo","helado", "src/images/donas-piramide-apilada.jpg",700, 600, 5),
-	new Producto("Mini Dona","Dona","src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 1500, 400, 5),
-	new Producto("Dona de Nutella","Dona","src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 900, 400, 5),
-	new Producto("Dona de Manjar","Dona","src/images/plato-donas-cereza-plano-superior.jpg", "Si comes una quieres dos", 900, 400, 5),
-
+	new Producto("Dona de Pie", "Dona", "src/images/donas-pie-limon.jpg", 900, 400, 0),
+	new Producto("Helado de Chocolate", "Helado", "src/images/donas-licor-manjar-frutos-rojos.jpg",600, 200, 0),
+	new Producto("Helado de Oreo","helado", "src/images/donas-piramide-apilada.jpg",600, 200, 0),
+	new Producto("Mini Dona","Dona","src/images/plato-donas-cereza-plano-superior.jpg", 1500, 400, 0),
+	new Producto("Dona de Nutella","Dona","src/images/plato-donas-cereza-plano-superior.jpg", 900, 400, 0),
+	new Producto("Dona de Manjar","Dona","src/images/plato-donas-cereza-plano-superior.jpg", 900, 500, 0),
 ];
+
+
 
 
 /*DECLARACIÓN DE OBJETOS
@@ -111,7 +110,7 @@ return whatsappPedido
 
 function whatsappImagen(argument) {
 	const whatsappImagen = new Image
-	whatsappImagen.src = "file:///C:/Users/Daniel/Documents/logos/WhatsApp_Logo_2/WhatsApp_Logo_2.png"
+	whatsappImagen.src = "./src/images/WhatsApp_Logo_1.png"
 	whatsappImagen.id = "whatsapp-imagen"
 
 	return whatsappImagen

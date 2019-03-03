@@ -21,9 +21,9 @@ Y crear una coleccion ordenada de los productos de vladimiro
 
 //Creando la clase Producto
 class Producto {
-	constructor(nombre,categoria,imagenLink, frase, precio, ganancia, stock){
+	constructor(nombre,categoria,imagenLink, precio, ganancia, stock){
+		
 		this.nombre = nombre
-		this.frase = frase
 
 		this.categoria = categoria
 
@@ -33,7 +33,7 @@ class Producto {
 		
 
 		this.precio = precio
-		this.ganacia = ganancia
+		this.ganancia = ganancia
 		this.stock = stock
 
 	}
