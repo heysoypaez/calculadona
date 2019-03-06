@@ -1,0 +1,31 @@
+/* Button
+---------------------------------------------------------------------------------- */
+
+button  {
+
+
+	margin-top: 1vh;
+	max-height: 65vh;
+
+	background-color: #e00; /*gray color*/
+	color: #fff;
+
+	font-size: 20px;
+	font-weight: 600;
+
+	padding: $padding-base;
+
+	border-radius: 20px;
+
+	border: 0px;
+	border-bottom: 3px solid black;
+	/*width, style, color*/
+
+	&:hover {
+
+	background-color: #f00;
+	border-bottom: 1px solid black;
+	}
+
+}
+

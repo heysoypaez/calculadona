@@ -1,0 +1,451 @@
+@charset "UTF-8";
+/*
+Autor: Daniel Páez
+URL Autor: https://heysoypaez
+Tema de la aplicación: calculadora para un negocio de reposteria 
+Descripción: aplicacion que ayuda a calcular los gastos, ingresos, ganancias, stock de un negocio de reposteria
+URL código: github.com/heysoypaez
+*/
+/* $Variables
+=============================================*/
+/*Constantes
+=============*/
+/* Size */
+/* Font and text */
+/* Margin */
+/* Padding */
+/* Color */
+/* Border */
+/* Others */
+/* Body
+-------------------------------------------------------- */
+/* line 4, ../sass/html-base/_body.scss */
+body {
+  /* Size */
+  /* Font and text */
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  /* Margin */
+  margin: 20px;
+  /* Padding */
+  /* Color */
+  background-color: #ff9900;
+  color: #ffffff;
+  /* Border */
+  /* Others */
+}
+
+/* Button
+---------------------------------------------------------------------------------- */
+/* line 4, ../sass/html-base/buttons/_button.scss */
+button {
+  margin-top: 1vh;
+  max-height: 65vh;
+  background-color: #e00;
+  /*gray color*/
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 1vh 2vh 1vh 2vw;
+  border-radius: 20px;
+  border: 0px;
+  border-bottom: 3px solid black;
+  /*width, style, color*/
+}
+/* line 24, ../sass/html-base/buttons/_button.scss */
+button:hover {
+  background-color: #f00;
+  border-bottom: 1px solid black;
+}
+
+/* Table of Contents
+
+	- Defaults
+		- Body
+		- Button
+		- Typographical Elements
+
+	- Structure and Layout
+		- Site Containers
+		- Title
+		- Column Widths and Positions
+		- Column Classes
+
+	-Estados
+		-oculto
+
+	- Classes and Ids
+		app
+		-header
+		--header-col-1
+		--header-col-2
+		--header-col-3
+
+		-content
+		--sidebar
+		---barra-jornadas
+
+		--principal
+		---boton-new-day
+		---- form #input Formulario input-stock-inicial
+		---- div #reporte-inicial Contenedor reporte inicial
+		---- div .producto-reporte-inicial 
+
+		---contenido-jornada
+
+	-footer
+	--Whatsapp button
+
+	- Media Queries
+		- max-width: 1139px
+		- max-width: 900px
+		- max-width: 450px
+
+================
+Estructura del contenido de un selector
+
+	/* Size */
+/* Font and text */
+/* Margin */
+/* Padding */
+/* Color */
+	/* Border * /
+	/* Others * /
+
+
+*/
+/*
+Defaults
+---------------------------------------------------------------------------------------------------- */
+/* Estados
+------------------------------------------------------------------------------------------------ */
+/* oculto
+------------------------------------------------------------------- */
+/* line 96, ../sass/index.scss */
+.oculto {
+  display: none;
+}
+
+/* Classes and Ids
+------------------------------------------------------------------------------------------------ */
+/* Header class
+------------------------------------------------------------------- */
+/* line 108, ../sass/index.scss */
+.header {
+  /* Size */
+  max-height: 50vh;
+  /* Font and text */
+  /* Margin */
+  /* Padding */
+  padding: 1vh 2vh 1vh 2vw;
+  /* Color */
+  background-color: #999;
+  /*gray color*/
+  /* Border */
+  border-radius: 20px;
+  border-bottom: 8px solid black;
+  /*width, style, color*/
+  /* Others */
+  display: block;
+}
+
+/* Logo id
+------------------------------------------------------------------- */
+/* line 138, ../sass/index.scss */
+img#logo {
+  max-height: 40vh;
+  max-width: 5vw;
+  border-radius: 10%;
+  float: left;
+}
+
+/* Sidebar class
+------------------------------------------------------------------- */
+/* line 154, ../sass/index.scss */
+.sidebar {
+  /* Size */
+  height: 90vh;
+  width: 15vw;
+  max-height: 65vh;
+  /* Font and text */
+  /* Margin */
+  margin-top: 1vh;
+  /* Padding */
+  padding: 1vh 2vh 1vh 2vw;
+  /* Color */
+  background-color: #999;
+  /*gray color*/
+  /* Border */
+  border-radius: 20px;
+  border-bottom: 8px solid black;
+  /*width, style, color*/
+  /* Others */
+  display: block;
+  float: left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* principal class
+------------------------------------------------------------------- */
+/* line 195, ../sass/index.scss */
+.principal {
+  /* Size */
+  height: 90vh;
+  width: 65vw;
+  max-height: 65vh;
+  /* Font and text */
+  /* Margin */
+  margin-top: 1vh;
+  /* Padding */
+  padding: 1vh 2vh 1vh 2vw;
+  /* Color */
+  background-color: #eee;
+  /*gray color*/
+  /* Border */
+  border-radius: 20px;
+  border-bottom: 8px solid black;
+  /*width, style, color*/
+  /* Others */
+  float: right;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* Formulario input-stock-inicial
+------------------------------------------------------------------- */
+/* line 228, ../sass/index.scss */
+form#input-stock-inicial {
+  background-color: pink;
+  text-align: center;
+  padding-top: 2vh;
+  padding-bottom: 4vh;
+  border-radius: 20px;
+}
+
+/*Contenedor Reporte inicial 
+-----------------------------*/
+/* line 241, ../sass/index.scss */
+div#reporte-inicial {
+  background-color: pink;
+  text-align: center;
+  padding-top: 2vh;
+  padding-bottom: 4vh;
+  border-radius: 20px;
+}
+
+/* Contenedor Producto reporte inicial 
+=======================================*/
+/* line 252, ../sass/index.scss */
+.producto-reporte-inicial {
+  background-color: red;
+  float: left;
+  width: 30%;
+  margin: 5px 5px 5px 5px;
+  display: inline-block;
+  height: 240px;
+  vertical-align: middle;
+  font-size: 12px;
+  color: white;
+  padding: 5px 5px 5px 5px;
+  border-radius: 50px;
+}
+
+/*Clase producto Formulario
+======================================*/
+/* line 277, ../sass/index.scss */
+.producto-stock-inicial {
+  background-color: red;
+  color: white;
+  width: 40%;
+  height: 250px;
+  border-radius: 30px;
+  float: left;
+  /* Padding */
+  padding: 1vh 2vh 1vh 2vw;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-top: 6vh;
+  margin-bottom: 1vh;
+  box-shadow: gray 5px 5px 5px;
+}
+
+/* contenido-jornada
+------------------------------------------------------------------- */
+/* line 304, ../sass/index.scss */
+#contenido-jornada {
+  color: #000;
+  text-align: left;
+  margin-top: 3vh;
+}
+
+/*
+#focus {
+	color: #fff;
+	font-weight: 600;
+	font-size: 20px;
+
+	position: fixed;
+	top: 40vh;
+	left: 40vw;
+	
+	background-color: #e22;
+	padding: 5% 5% 5% 5%;
+
+	box-shadow: 1vw 1vh 40px 1px #f90;
+
+}
+*/
+/* imagenProducto
+------------------------------------------------------------------- */
+/* line 332, ../sass/index.scss */
+img.imagenProducto {
+  /* Size */
+  width: 18vw;
+  height: auto;
+  max-width: 120px;
+  /* Font and text */
+  /* Margin */
+  /* Padding */
+  /* Color */
+  /* Border */
+  border-radius: 30%;
+}
+
+/* footer class
+------------------------------------------------------------------- */
+/* line 353, ../sass/index.scss */
+.footer {
+  float: right;
+}
+
+/*botones de Whatsapp
+ * =======================================*/
+/* line 362, ../sass/index.scss */
+#whatsapp-pedido {
+  background-color: #25D366;
+  color: white;
+  padding: 15px 20px 15px 20px;
+  font-size: 20px;
+  float: left;
+  margin-top: 2vh;
+}
+
+/* line 372, ../sass/index.scss */
+#whatsapp-pedido:hover {
+  background-color: white;
+  color: #25D366;
+  border-radius: 50px;
+  border: solid 1px #25D366;
+}
+
+/* line 380, ../sass/index.scss */
+#whatsapp-pedido:visited {
+  background-color: #25D366;
+  color: white;
+}
+
+/* line 387, ../sass/index.scss */
+#whatsapp-imagen {
+  max-height: 8vh;
+  max-width: 20vw;
+  float: right;
+  margin-top: 2vh;
+}
+
+/*
+Media Queries
+---------------------------------------------------------------------------------------------------- */
+/*Tablets */
+@media only screen and (max-width: 900px) {
+  /* line 403, ../sass/index.scss */
+  img#logo {
+    max-width: 10vh;
+  }
+}
+@media only screen and (max-width: 550px) {
+  /* Sidebar class
+  ------------------------------------------------------------------- */
+  /* line 419, ../sass/index.scss */
+  .sidebar {
+    /* Size */
+    height: 23vh;
+    width: 87vw;
+    max-height: 65vh;
+    /* Margin */
+    margin-top: 1vh;
+    /* Padding */
+    padding: 1vh 2vh 1vh 2vw;
+    /* Others */
+    display: block;
+    float: left;
+    overflow-y: hidden;
+    /*Por invertir*/
+    overflow-x: scroll;
+  }
+
+  /* line 444, ../sass/index.scss */
+  .productosSidebar {
+    width: 100px;
+    height: inherit;
+    /* Padding */
+    padding: 1vh 2vh 1vh 2vw;
+    display: inline-block;
+  }
+
+  /* line 457, ../sass/index.scss */
+  #carrusel-productos-sidebar {
+    width: 500px;
+  }
+
+  	/* principal class
+  ------------------------------------------------------------------- */
+  /* line 467, ../sass/index.scss */
+  .principal {
+    /* Size */
+    height: 90vh;
+    width: 87vw;
+    max-height: 65vh;
+    /* Font and text */
+    /* Margin */
+    margin-top: 1vh;
+    /* Padding */
+    padding: 1vh 2vh 1vh 2vw;
+    /* Color */
+    background-color: #eee;
+    /*gray color*/
+    /* Border */
+    border-radius: 20px;
+    border-bottom: 8px solid black;
+    /*width, style, color*/
+    /* Others */
+    float: right;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  	/*Clase producto Formulario
+  ======================================*/
+  /* line 501, ../sass/index.scss */
+  .productoFormulario {
+    background-color: red;
+    color: white;
+    width: 60vw;
+    height: 40vh;
+    border-radius: 30px;
+    float: left;
+    /* Padding */
+    padding: 1vh 2vh 1vh 2vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
+  }
+
+  /* line 523, ../sass/index.scss */
+  img.imagenProducto {
+    /* Size */
+    width: 20vw;
+    height: auto;
+  }
+}
