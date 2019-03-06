@@ -66,12 +66,12 @@ const $botoninputStockInicial = document.getElementById("boton-input-stock-inici
 //Array vector donde contendremos el conjunto de productos de Vladimiro
 let catalogo = [
 
-	new Producto("Dona de Pie", "Dona", "src/images/donas-pie-limon.jpg", 900, 400, 0),
-	new Producto("Helado de Chocolate", "Helado", "src/images/donas-licor-manjar-frutos-rojos.jpg",600, 200, 0),
-	new Producto("Helado de Oreo","helado", "src/images/donas-piramide-apilada.jpg",600, 200, 0),
-	new Producto("Mini Dona","Dona","src/images/plato-donas-cereza-plano-superior.jpg", 1500, 400, 0),
-	new Producto("Dona de Nutella","Dona","src/images/plato-donas-cereza-plano-superior.jpg", 900, 400, 0),
-	new Producto("Dona de Manjar","Dona","src/images/plato-donas-cereza-plano-superior.jpg", 900, 500, 0),
+	new Producto("Dona de Pie", "Dona", "public/images/donas-pie-limon.jpg", 900, 400, 0),
+	new Producto("Helado de Chocolate", "Helado", "public/images/donas-licor-manjar-frutos-rojos.jpg",600, 200, 0),
+	new Producto("Helado de Oreo","helado", "public/images/donas-piramide-apilada.jpg",600, 200, 0),
+	new Producto("Mini Dona","Dona","public/images/plato-donas-cereza-plano-superior.jpg", 1500, 400, 0),
+	new Producto("Dona de Nutella","Dona","public/images/plato-donas-cereza-plano-superior.jpg", 900, 400, 0),
+	new Producto("Dona de Manjar","Dona","public/images/plato-donas-cereza-plano-superior.jpg", 900, 500, 0),
 ];
 
 
@@ -110,7 +110,7 @@ return whatsappPedido
 
 function whatsappImagen(argument) {
 	const whatsappImagen = new Image
-	whatsappImagen.src = "./src/images/WhatsApp_Logo_1.png"
+	whatsappImagen.public = "./public/images/WhatsApp_Logo_1.png"
 	whatsappImagen.id = "whatsapp-imagen"
 
 	return whatsappImagen
