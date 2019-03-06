@@ -382,7 +382,7 @@ class Jornada {
 
 								<div id="reporte-inicial-insights">
 
-									<h1>¿Cuanto dinero puedes ganar si vendes todo?<h1>
+									<h1>¿Cuanto dinero tendrás si vendes todo?<h1>
 									<div> es decir ${unidadesStockInicialTotal} unidades</div>
 
 											<div id="monto-ventas-inicial-total">
