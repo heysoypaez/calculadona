@@ -11,7 +11,7 @@
 
 	2.1 [HECHO] Reciba la cantidad de productos que lleva para el dia de venta
 
-	2.2 Calcule las ventas maximas, las utilidades que implica esa cantidad de productos en la jornada
+	2.2  [HECHO] Calcule las ventas maximas, las utilidades que implica esa cantidad de productos en la jornada
 
 	2.3 Calcule la diferencia entre lo que llevo y lo que tiene cuando volvio de la jornada
 		1.3.1 calcule la diferencia desglosada por cada producto especifico (me quedaron 3 donas, 1 helado de pie)
@@ -32,7 +32,6 @@
 		 si le quedaron menos de 10 estuvieron buenas, 
 		 si le quedaron mas de 25 estuvieron malas
 
-3. Una clase formulario?
 */
 class Jornada {
 
@@ -40,16 +39,12 @@ class Jornada {
 
 		//atributos y metodos inicializados
 
-		this.inicializar()
-
 		this.fecha = new Date; //Arroja la fecha de hoy
 		this.stockInicial = this.obtenerStockInicial(); //Cantidad de productos que lleva esta jornada
 		this.stockFinal = this.obtenerStockFinal();			
 	}
 
-	inicializar() {
 
-	}
 
 	/*METODOS DE OBTENCION DE DATOS
 	======================*/
@@ -63,34 +58,50 @@ class Jornada {
 
 						constructor(index) {
 
-								this.imagen = document.createElement("IMG")
+								const create = ($element, node = document) => node.createElement($element) 
+
+								this.imagen = create("IMG")
 								this.imagen = catalogo[index].imagen
 
-								this.nombre = document.createElement("P")
+								this.nombre = create("P")
 								this.nombre.innerHTML = catalogo[index].nombre
 
-								this.categoria = document.createElement("P")
+								this.categoria = create("P")
 								this.categoria.innerHTML = `Categoria: ${catalogo[index].categoria}`
 
-								this.precio = document.createElement("P"),
+								this.precio = create("P"),
 								this.precio.innerHTML =  `$${catalogo[index].precio}`
 
-								this.inputStock = document.createElement("INPUT")
-								this.inputStock.type = "number"
-								this.inputStock.value = 0 //por defecto el valor es cero
-								this.inputStock.className = "input-productos-stock-inicial"
+								this.inputStock = create("INPUT")
+								let {type, value, className} = this.inputStock
+									type = "number"
+									value = 0 //por defecto el valor es cero
+									className = "input-productos-stock-inicial"
 
 								//================
-								this.contenedorDiv = document.createElement("DIV")
+								this.contenedorDiv = create("DIV")
 								this.contenedorDiv.className = "producto-stock-inicial"; 
 
 
+									const append = ($element, $recursiveElement) => {
 
-									this.contenedorDiv.appendChild(this.imagen)
-									this.contenedorDiv.appendChild(this.nombre)
-									this.contenedorDiv.appendChild(this.categoria)
-									this.contenedorDiv.appendChild(this.precio)
-									this.contenedorDiv.appendChild(this.inputStock)
+										//If there is not another element end and return true
+										if (!$recursiveElement) {
+											return true
+										}
+
+										return (
+											this.contenedorDiv.appendChild($element) ,
+
+											append($recursiveElement)
+										)
+									} 
+									
+									append(this.imagen)
+									append(this.nombre)
+									append(this.categoria)
+									append(this.precio)
+									append(this.inputStock)
 						}					
 					}		
 
@@ -128,8 +139,6 @@ class Jornada {
 
 					botonEnviar.innerHTML = "Enviar lo que llevaré hoy"
 					botonEnviar.id = "boton-enviar-input-stock-inicial" 
-					
-
 					botonEnviar.type = "button"
 
 					/*Bindings*/
@@ -398,7 +407,12 @@ class Jornada {
 									<p>Dicho todo esto, te dejo y nos vemos en la noche para ver que te quedó</p>	
 
 
-										<input type="submit" id="boton-calcular-stock-final" value="Calcular stock final" />
+										<input
+										 type="submit" 
+										 id="boton-calcular-stock-final" 
+										 value="Calcular stock final"
+										
+										/>
 									 
 
 								</div>
@@ -455,6 +469,19 @@ class Jornada {
 
 					render($montoVentasInicialTotal,$dataMontoVentasInicialTotal )
 					render($montoGananciasInicialTotal,$dataMontoGananciasInicialTotal)
+
+
+					//Funcion orientada a evento HTML
+						/*Bindings*/
+
+					const botonCalcularStockFinal = document.getElementById("boton-calcular-stock-final")
+
+					botonCalcularStockFinal.addEventListener("click", manejarBotonCalcularStockFinalClicado )
+
+					function manejarBotonCalcularStockFinalClicado() {
+						alert("Oh Yea")
+					}
+
 		}		
 }
 
