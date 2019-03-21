@@ -21,9 +21,9 @@ Y crear una coleccion ordenada de los productos de vladimiro
 
 //Creando la clase Producto
 class Producto {
-	constructor(nombre,categoria,imagenLink, frase, precio, ganancia, stock){
+	constructor(nombre,categoria,imagenLink, precio, ganancia, stock){
+		
 		this.nombre = nombre
-		this.frase = frase
 
 		this.categoria = categoria
 
@@ -33,7 +33,7 @@ class Producto {
 		
 
 		this.precio = precio
-		this.ganacia = ganancia
+		this.ganancia = ganancia
 		this.stock = stock
 
 	}
@@ -74,7 +74,29 @@ class Producto {
 		lugar.innerHTML += `<li> ${texto} </li>`
 		//Esta imagen queda justo debajo del texto
 		lugar.appendChild(this.imagen)
-
 	}
 
 }
+
+
+/*Necesito agregar el inventario a cada producto
+El inventario lo importo del array de stock inicial
+
+lo que hare es que por cada proucto en el catalogo colocare el stock que corresponde en el array stock inicial con el mismo indice
+catalogo[i].stock = stockInicial[i]
+
+despues hare render de eso en pantalla
+
+*/
+
+/*
+for(producto of catalogo) {
+	debugger
+	producto.stock = diaDePrueba.stockInicial[producto]
+}
+
+for(let i = 0; i < catalogo.length; i++) {
+	catalogo[i].stock = diaDePrueba.stockInicial[i]
+}
+
+*/

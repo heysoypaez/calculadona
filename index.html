@@ -8,19 +8,18 @@
 	<meta charset="UTF-8" />
 	 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
-	<link href="styles.css" rel="stylesheet" type="text/css"></link> 
+	<link href="public/styles.css" rel="stylesheet" type="text/css"></link> 
 
 	<link rel=icon 
 		  type="image/jpg"
-		  href="../src/images/imagen-logo-donuts-paradise.jpg">
-
-
+		  href="src/images/imagen-logo-donuts-paradise.jpg">
 </head>
+
 <body>
 	<div class="header"> 
 		<div  class="header-col-1"> 
 
-			<img id="logo" src="../src/images/imagen-logo-donuts-paradise.jpg">
+			<img id="logo" src="src/images/imagen-logo-donuts-paradise.jpg">
 
 		</div>
 
@@ -40,6 +39,7 @@
 		<div class="sidebar">
 
 			<div id="barra-jornadas"> 
+
 				<div id="carrusel-productos-sidebar">
 					
 				</div>
@@ -50,41 +50,34 @@
 		<div class="principal"> 
 
 			<div id="button-new-day"> 
-				<button onClick="ocultar()">Nueva Jornada</button>
 
-<!--
-				<p id="focus"> hola, <br /> Hola, soy un atravesado </p>
--->
+				<button onClick="ocultar(inputStockInicial)"> Nueva Jornada </button>
 			</div>
 
 			<div id="contenido-jornada"> 
 
-<!-- Div experimental para crear un formulario-->
-				<div> 
+				<div>
 					<form id="input-stock-inicial">	
 
 					</form>
 				</div>
-
 			</div>
-		</div>
-		
+		</div>	
 	</div>
 
 	<div class="footer"> 
 		<div id="whatsapp-container">
 		
 		</div>
-	
 	</div>
 
 
 
 <!-- SCRIPTS-->
 	
-	<script src="scripts/class-jornada.js"></script>
-	<script src="scripts/class-producto.js"></script>
-	<script src="scripts/index.js"></script>
+	<script src="public/scripts/class-jornada.js"></script>
+	<script src="public/scripts/class-producto.js"></script>
+	<script src="public/scripts/index.js"></script>
 
 
 </body>
@@ -108,10 +101,5 @@ app
 ---contenido-jornada
 
 -footer
-
-
-
-
-
 
  -->
