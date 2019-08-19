@@ -1,55 +1,14 @@
 
-/* Apuntes para crear una calculadona magnifica
-2. Puedo crear un objeto jornada que
 
-	0.1 Tenga un dia especifico [HECHO]
-	0.2 un Id [PAUSA]
-		 ¿Como creo una serie de numero irrepetibles?
-		Esta secuencia se debe aumentar cada vez que se crea un nuevo objeto jornada
-		Esta secuencia debe ser parte de un array
-
-
-	2.1 [HECHO] Reciba la cantidad de productos que lleva para el dia de venta
-
-	2.2 Calcule las ventas maximas, las utilidades que implica esa cantidad de productos en la jornada
-
-	2.3 Calcule la diferencia entre lo que llevo y lo que tiene cuando volvio de la jornada
-		1.3.1 calcule la diferencia desglosada por cada producto especifico (me quedaron 3 donas, 1 helado de pie)
-
-	2.4 Calcule el dinero que tiene encima
-		2.4.1 Calcule las utilidades
-		2.4.2 Si el dinero que tiene es igual al dinero que conto todo esta bien.
-		2.4.3 Si no, hay problemas y tiene que ver en que gastó dinero o quien le debe dinero.
-
-	2.5 Una vez eso se resuelve,
-	 si le queda poca mercancia o insuficiente (¿Que es poca mercancia?)(¿O insuficiente?) va a 
-	 	Comprar mas donas y mando link para hacerlo sea ws o una web con lo necesario del pedido
-	 	o
-	 	Hace más repostería el mismo.
-
-	2.6 Ademas Vladimiro analiza si las ventas del dia estuvieron buenas,
-		 si vendió todo obviamente estan buenas, 
-		 si le quedaron menos de 10 estuvieron buenas, 
-		 si le quedaron mas de 25 estuvieron malas
-
-3. Una clase formulario?
-*/
 class Jornada {
 
 	constructor() {
-
-		//atributos y metodos inicializados
-
-		this.inicializar()
 
 		this.fecha = new Date; //Arroja la fecha de hoy
 		this.stockInicial = this.obtenerStockInicial(); //Cantidad de productos que lleva esta jornada
 		this.stockFinal = this.obtenerStockFinal();			
 	}
 
-	inicializar() {
-
-	}
 
 	/*METODOS DE OBTENCION DE DATOS
 	======================*/
@@ -84,13 +43,11 @@ class Jornada {
 								this.contenedorDiv = document.createElement("DIV")
 								this.contenedorDiv.className = "producto-stock-inicial"; 
 
-
-
-									this.contenedorDiv.appendChild(this.imagen)
-									this.contenedorDiv.appendChild(this.nombre)
-									this.contenedorDiv.appendChild(this.categoria)
-									this.contenedorDiv.appendChild(this.precio)
-									this.contenedorDiv.appendChild(this.inputStock)
+								this.contenedorDiv.appendChild(this.imagen)
+								this.contenedorDiv.appendChild(this.nombre)
+								this.contenedorDiv.appendChild(this.categoria)
+								this.contenedorDiv.appendChild(this.precio)
+								this.contenedorDiv.appendChild(this.inputStock)
 						}					
 					}		
 
@@ -232,10 +189,6 @@ class Jornada {
 						this.mostrarReporteInicial();
 						
 					}
-
-
-
-					//ARROW FUNCTIONS
 				
 					const consultar = (index) => {
 						
@@ -290,11 +243,8 @@ class Jornada {
 					
 					const unidadesStockInicialTotal = stockInicial.reduce(reducerStockInicialTotal,valorInicial)
 					
-
 					let gananciasInicialTotal = [];
 					let ventasInicialTotal = [];
-
-
 
 
 				/*DECLARACIÓN DE FUNCIONES
@@ -400,9 +350,7 @@ class Jornada {
 
 										<input type="submit" id="boton-calcular-stock-final" value="Calcular stock final" />
 									 
-
 								</div>
-
 							</div>
 							`
 						)
@@ -457,32 +405,3 @@ class Jornada {
 					render($montoGananciasInicialTotal,$dataMontoGananciasInicialTotal)
 		}		
 }
-
-
-
-/*
-Reflexiones, ideas, observaciones mientrras programo:
-
-
-Closure es la funcion padre dentro de la que esta otra funcion
-
-Este codigo siento que tiene potencial de abstraerse, sintetizarse más
-
-Y a la vez hacerse más escalable a traves de funciones y objetos
-
-Aun no tengo claro como, aùn, pero viene
-
-Lista de comos
--
--
--
-
-Considero que deberia mostrar en pantalla solo los productos donde stock es mayor a 0, eso lo puedo hacer filtrando la colección
-
-¿Qué resultados quiero de la sesión de hoy?
- - [] Quiero mostrar en pantalla la ganancia que representa cada producto para Vladimiro en funcion del stock que llevo
- - []
- - []
-
-
-*/

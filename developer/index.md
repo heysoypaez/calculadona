@@ -16,7 +16,7 @@ tituloEjemplo.appendChild(textoEjemplo)
 
 
 
-Esto es una mini aplicación web  para calcular la econonomia diaria del negocio de reposteria de Vladimiro y hacer nuevos productos de acuerdo a su economia de forma rápida, útil y entretenida :D
+Esto es una mini aplicación web  para calcular la econonomia diaria del negocio de reposteria de Vladimiro y hacer nuevos productos de acuerdo a su economia de forma rápida, útil y entretenida :)
 
 Vladimiro vende donas, tortas y helados. 
 
